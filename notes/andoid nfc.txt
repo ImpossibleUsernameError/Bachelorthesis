@@ -1,0 +1,41 @@
+----------------------------- http://www.dummies.com/consumer-electronics/nfc-data-exchange-format-ndef/ ----------------------------------------------------------------
+
+Das NFC Data Exchange Format (NDEF) ist ein standardisiertes Datenformat, zum Austausch von Nachrichten über NFC. Eine NDEF Nachricht besteht aus mehreren Einträgen. 
+
+----------------------------- https://developer.android.com/guide/topics/connectivity/nfc/nfc.html ---------------------------------------------
+
+Das Tag Dispatch System ist verantwortlich für das Lesen von NDEF Nachrichten von NFC Tags. Es analysiert die NFC Tags, kategorisiert die Daten und 
+startet basierend darauf die richtige App, die sich für die kategorisierten Nachrichten interessiert. Gesendet können Nachrichten über Android Beam werden. 
+Wenn das Tag Dispatch System eine NDEF Nachricht erhält, wird der erste Eintrag der Nachricht gelesen. Dieser beinhaltet das Type Name Format (TNF), das angibt,
+wie das Type Feld interpretiert werden soll, ein Type Feld, das den Typ des Eintrags beschreibt, eine ID sowie einen Payload, der auf mehrere
+NDEF Einträge aufgeteilt sein kann. TNF und Type werden benutzt, um die NDEF Nachricht zu identifizieren und den Typ der enthaltenen Daten zu erkennen. 
+Nach der Erkennung und Klassifizierung der Daten wird ein Intent erstellt, der den NFC Tag enthält, und an eine Applikation geschickt, die 
+die entsprechende Intent-Aktion im Intent-Filter angibt. 
+
+Das android.nfc.tech package beinhaltet Tools, um mit Tags umzugehen, die nicht mit NDEF arbeiten bzw. die nicht klassifiziert werden können. 
+In diesem Fall muss mithilfe von reinen Bytes und einem eigenen Protokoll kommuniziert werden. Informationen, über die vom Tag 
+unterstützten Technologien kann einfach bestimmt werden. 
+
+
+--------------------------------------------- http://rfidsec2015.iaik.tugraz.at/wp-content/uploads/2015/08/006-Villa-slides.pdf ----------------------------------
+
+Die NFC Architektur in Android basiert auf den zwei nativen Libraries libnfc-nxp und libnfc-nci. Auf welcher der beiden, ist abhängig vom eingebauten
+NFC Chip. Bei Google's Nexus Reihe wird ab dem LG Nexus 4 der NFC Stack von Broadcom benutzt (also libnfc-nci). 
+
+
+
+
+
+frameworks/java/nfc ist die Java Seite von NFC, die mehr oder weniger auf dem nativen Code draufsitzt
+
+
+HostApduService ist die Einstiegskomponente bei der Emulation von Smartcards. Die Klasse muss man erweitern um HCE durchführen zu können. Die Methode processCommandApdu ist eine 
+abstrakte Methode, die von der Unterklasse implementiert wird. 
+HostApduService besitzt ein Messenger Objekt. Das Service wird irgendwo vom OS mit bindService(...) gebunden und die onBind() Methode des HostApduService Objekts liefert 
+ein IBinder (das Messenger) Objekt zurück. NFC Apdus werden dann über die handleMessage(...) Methode des Messengers an das Service gesendet. In handleMessage(...) wird 
+processCommandApdu(...) aufgerufen.
+HostApduServices und deren AIDS werden in com.android.nfc.HostEmulationManager gebunden und von dort aus werden Daten übertragen. Auch Response Apdus kommen an die Klasse zurück. 
+
+HostEmulationManager besitzt einen AidCache, der die HostApduService aus der Routingtabelle lädt. Der besitzt also dann die IBinder(Messenger) Objekte der HostApduServices.
+Das HostApduService wird in bindServiceIfNeededLocked gebunden. Der Aufruf der Methode erfolgt in onHostEmulationData im Falle eines SELECT APDUS (STATE_W4_SELECT). Das Apdu
+wird dann in sendDataToServiceLocked an das Service gesendet (mActiveService.send). Das triggert die handleMessage im HostApduService.  

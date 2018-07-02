@@ -1,0 +1,972 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.9 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\datalist[entry]{nty/global//global/global}
+  \entry{nfcRelayWithOffTheShelfHardAndSoftware}{article}{}
+    \name{author}{4}{}{%
+      {{hash=BT}{%
+         family={Bocek},
+         familyi={B\bibinitperiod},
+         given={Thomas},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=KC}{%
+         family={Killer},
+         familyi={K\bibinitperiod},
+         given={Christian},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=TC}{%
+         family={Tsiaras},
+         familyi={T\bibinitperiod},
+         given={Christos},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=SB}{%
+         family={Stiller},
+         familyi={S\bibinitperiod},
+         given={Burkhard},
+         giveni={B\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BT+1}
+    \strng{fullhash}{BTKCTCSB1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{title}{An NFC Relay Attack with Off-the-shelf Hardware and Software}
+    \verb{url}
+    \verb https://link.springer.com/chapter/10.1007/978-3-319-39814-3_8
+    \endverb
+    \field{journaltitle}{10th IFIP WG 6.6 International Conference on
+  Autonomous Infrastructure, Management, and Security, AIMS 2016}
+    \field{year}{2016}
+    \field{urlday}{15}
+    \field{urlmonth}{01}
+    \field{urlyear}{2018}
+  \endentry
+
+  \entry{dda}{online}{}
+    \name{author}{1}{}{%
+      {{hash=CCSS}{%
+         family={Consulting},
+         familyi={C\bibinitperiod},
+         given={CardContact Software \&\bibnamedelima System},
+         giveni={C\bibinitperiod\bibinitdelim S\bibinitperiod
+  \bibinitperiod\bibinitdelim S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CCSS1}
+    \strng{fullhash}{CCSS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{title}{Dynamic Data Authentication}
+    \verb{url}
+    \verb https://www.openscdp.org/scripts/tutorial/emv/dda.html
+    \endverb
+    \field{urlday}{10}
+    \field{urlmonth}{05}
+    \field{urlyear}{2018}
+  \endentry
+
+  \entry{sda}{online}{}
+    \name{author}{1}{}{%
+      {{hash=CCSS}{%
+         family={Consulting},
+         familyi={C\bibinitperiod},
+         given={CardContact Software \&\bibnamedelima System},
+         giveni={C\bibinitperiod\bibinitdelim S\bibinitperiod
+  \bibinitperiod\bibinitdelim S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CCSS1}
+    \strng{fullhash}{CCSS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{title}{Static Data Authentication (SDA)}
+    \verb{url}
+    \verb https://www.openscdp.org/scripts/tutorial/emv/SDA.html
+    \endverb
+    \field{urlday}{03}
+    \field{urlmonth}{05}
+    \field{urlyear}{2018}
+  \endentry
+
+  \entry{sonyPhillipsNfcPressRelease}{online}{}
+    \name{author}{2}{}{%
+      {{hash=CS}{%
+         family={Corporation},
+         familyi={C\bibinitperiod},
+         given={Sony},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=P}{%
+         family={Philips},
+         familyi={P\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CSP1}
+    \strng{fullhash}{CSP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{title}{PHILIPS AND SONY ANNOUNCE STRATEGIC COOPERATION TO DEFINE
+  NEXT GENERATION NEAR FIELD RADIO-FREQUENCY COMMUNICATIONS}
+    \verb{url}
+    \verb https://www.sony.net/SonyInfo/News/Press_Archive/200209/02-0905E/
+    \endverb
+    \field{year}{2002}
+    \field{urlday}{24}
+    \field{urlmonth}{01}
+    \field{urlyear}{2018}
+  \endentry
+
+  \entry{cuno:nfc}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=CA}{%
+         family={Cuno},
+         familyi={C\bibinitperiod},
+         given={Andrea},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CA1}
+    \strng{fullhash}{CA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{title}{Near Field Communication}
+    \verb{url}
+    \verb http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.395.8428&rep
+    \verb =rep1&type=pdf#page=11
+    \endverb
+    \field{year}{2010}
+    \field{urlday}{19}
+    \field{urlmonth}{04}
+    \field{urlyear}{2018}
+  \endentry
+
+  \entry{emvco}{online}{}
+    \name{author}{1}{}{%
+      {{hash=E}{%
+         family={EMVCo},
+         familyi={E\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{E1}
+    \strng{fullhash}{E1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{E}
+    \field{sortinithash}{E}
+    \field{title}{EMVCo - Webseite}
+    \verb{url}
+    \verb https://www.emvco.com/
+    \endverb
+    \field{urlday}{28}
+    \field{urlmonth}{04}
+    \field{urlyear}{2018}
+  \endentry
+
+  \entry{emvbook2}{inbook}{}
+    \name{author}{1}{}{%
+      {{hash=E}{%
+         family={EMVCo},
+         familyi={E\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{E1}
+    \strng{fullhash}{E1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{E}
+    \field{sortinithash}{E}
+    \field{title}{Integrated Circuit Card Specifications for Payment Systems:
+  Book 2 - Security and Key Management}
+    \verb{url}
+    \verb https://www.emvco.com/wp-content/uploads/2017/05/EMV_v4.3_Book_2_Secu
+    \verb rity_and_Key_Management_20120607061923900.pdf
+    \endverb
+    \field{year}{2011}
+    \field{urlday}{10}
+    \field{urlmonth}{05}
+    \field{urlyear}{2018}
+  \endentry
+
+  \entry{emvbook3}{inbook}{}
+    \name{author}{1}{}{%
+      {{hash=E}{%
+         family={EMVCo},
+         familyi={E\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{E1}
+    \strng{fullhash}{E1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{E}
+    \field{sortinithash}{E}
+    \field{title}{Integrated Circuit Card Specifications for Payment Systems:
+  Book 3 - Application Specification}
+    \verb{url}
+    \verb https://www.emvco.com/wp-content/uploads/2017/05/EMV_v4.3_Book_3_Appl
+    \verb ication_Specification_20120607062110791.pdf
+    \endverb
+    \field{year}{2011}
+    \field{urlday}{29}
+    \field{urlmonth}{04}
+    \field{urlyear}{2018}
+  \endentry
+
+  \entry{practicalNfcPeerToPeerRelayMobilePhones}{article}{}
+    \name{author}{4}{}{%
+      {{hash=FL}{%
+         family={Francis},
+         familyi={F\bibinitperiod},
+         given={Lishoy},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=HG}{%
+         family={Hancke},
+         familyi={H\bibinitperiod},
+         given={Gerhard},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=MK}{%
+         family={Mayes},
+         familyi={M\bibinitperiod},
+         given={Keith},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=MK}{%
+         family={Markantonakis},
+         familyi={M\bibinitperiod},
+         given={Konstantinos},
+         giveni={K\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{FL+1}
+    \strng{fullhash}{FLHGMKMK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{F}
+    \field{sortinithash}{F}
+    \field{title}{Practical NFC Peer-to-Peer Relay Attack Using Mobile Phones}
+    \verb{url}
+    \verb https://link.springer.com/chapter/10.1007/978-3-642-16822-2_4
+    \endverb
+    \field{journaltitle}{International Workshop on Radio Frequency
+  Identification: Security and Privacy Issues}
+    \field{year}{2010}
+    \field{urlday}{15}
+    \field{urlmonth}{01}
+    \field{urlyear}{2018}
+  \endentry
+
+  \entry{getInfoEmvJava}{online}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{title}{Getting information from an EMV chip card with Java}
+    \verb{url}
+    \verb https://blog.saush.com/2006/09/08/getting-information-from-an-emv-chi
+    \verb p-card/
+    \endverb
+    \field{year}{2006}
+    \field{urlday}{29}
+    \field{urlmonth}{04}
+    \field{urlyear}{2018}
+  \endentry
+
+  \entry{securityNfc}{misc}{}
+    \name{author}{2}{}{%
+      {{hash=HE}{%
+         family={Haselsteiner},
+         familyi={H\bibinitperiod},
+         given={Ernst},
+         giveni={E\bibinitperiod},
+      }}%
+      {{hash=BK}{%
+         family={Breitfu√ü},
+         familyi={B\bibinitperiod},
+         given={Klemens},
+         giveni={K\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HEBK1}
+    \strng{fullhash}{HEBK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{title}{Security in Near Field Communication (NFC)}
+    \verb{url}
+    \verb https://s3.amazonaws.com/academia.edu.documents/8360228/002%20-%20sec
+    \verb urity%20in%20nfc.pdf?AWSAccessKeyId=AKIAIWOWYYGZ2Y53UL3A&Expires=1516
+    \verb 912912&Signature=sib36KcnIO0AAbNxqdEjxuId6TY%3D&response-content-disp
+    \verb osition=inline%3B%20filename%3DSecurity_in_near_field_communication_N
+    \verb FC.pdf
+    \endverb
+    \field{year}{2006}
+    \field{urlday}{25}
+    \field{urlmonth}{01}
+    \field{urlyear}{2018}
+  \endentry
+
+  \entry{nfcHistory}{online}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{title}{History of Near Field Communication}
+    \verb{url}
+    \verb http://nearfieldcommunication.org/history-nfc.html
+    \endverb
+  \endentry
+
+  \entry{etsi:ts:102:190}{online}{}
+    \name{author}{1}{}{%
+      {{hash=IETS}{%
+         family={Institute},
+         familyi={I\bibinitperiod},
+         given={European Telecommunications\bibnamedelima Standards},
+         giveni={E\bibinitperiod\bibinitdelim T\bibinitperiod\bibinitdelim
+  S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{IETS1}
+    \strng{fullhash}{IETS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{I}
+    \field{sortinithash}{I}
+    \field{title}{ETSI TS 102 190: Near Field Communication (NFC) IP-1;
+  Interface and Protocol (NFCIP-1)}
+    \verb{url}
+    \verb http://www.etsi.org/deliver/etsi_ts/102100_102199/102190/01.01.01_60/
+    \verb ts_102190v010101p.pdf
+    \endverb
+    \field{year}{2003}
+    \field{urlday}{15}
+    \field{urlmonth}{04}
+    \field{urlyear}{2018}
+  \endentry
+
+  \entry{nfcTechVulnAttack}{online}{}
+    \name{author}{1}{}{%
+      {{hash=II}{%
+         family={Institute},
+         familyi={I\bibinitperiod},
+         given={Infosec},
+         giveni={I\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{II1}
+    \strng{fullhash}{II1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{I}
+    \field{sortinithash}{I}
+    \field{title}{Near Field Communication (NFC) Technology, Vulnerabilities
+  and Principal Attack Schema}
+    \verb{url}
+    \verb http://resources.infosecinstitute.com/near-field-communication-nfc-te
+    \verb chnology-vulnerabilities-and-principal-attack-schema/
+    \endverb
+    \field{year}{2013}
+    \field{urlday}{24}
+    \field{urlmonth}{01}
+    \field{urlyear}{2018}
+  \endentry
+
+  \entry{pickingVirtualPockets}{article}{}
+    \name{author}{2}{}{%
+      {{hash=KZ}{%
+         family={Kfir},
+         familyi={K\bibinitperiod},
+         given={Z.},
+         giveni={Z\bibinitperiod},
+      }}%
+      {{hash=WA}{%
+         family={Wool},
+         familyi={W\bibinitperiod},
+         given={A.},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{KZWA1}
+    \strng{fullhash}{KZWA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{K}
+    \field{sortinithash}{K}
+    \field{title}{Picking Virtual Pockets using Relay Attacks on Contactless
+  Smartcard}
+    \verb{url}
+    \verb http://ieeexplore.ieee.org/abstract/document/1607558/
+    \endverb
+    \field{journaltitle}{First International Conference on Security and Privacy
+  for Emerging Areas in Communications Networks (SECURECOMM'05)}
+    \field{year}{2005}
+    \field{urlday}{15}
+    \field{urlmonth}{01}
+    \field{urlyear}{2018}
+  \endentry
+
+  \entry{lexikonSmartcard}{online}{}
+    \name{author}{1}{}{%
+      {{hash=LPDR}{%
+         family={Lackes},
+         familyi={L\bibinitperiod},
+         given={Prof. Dr.\bibnamedelima Richard},
+         giveni={P\bibinitperiod\bibinitdelim D\bibinitperiod\bibinitdelim
+  R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{LPDR1}
+    \strng{fullhash}{LPDR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{L}
+    \field{sortinithash}{L}
+    \field{title}{Gabler Wirtschaftslexikon: Chipkarte}
+    \verb{url}
+    \verb https://wirtschaftslexikon.gabler.de/definition/chipkarte-27504#autho
+    \verb rs
+    \endverb
+    \field{urlday}{24}
+    \field{urlmonth}{04}
+    \field{urlyear}{2018}
+  \endentry
+
+  \entry{Madlmayr2014}{inbook}{}
+    \name{author}{3}{}{%
+      {{hash=MG}{%
+         family={Madlmayr},
+         familyi={M\bibinitperiod},
+         given={Gerald},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=KC}{%
+         family={Kantner},
+         familyi={K\bibinitperiod},
+         given={Christian},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=GT}{%
+         family={Grechenig},
+         familyi={G\bibinitperiod},
+         given={Thomas},
+         giveni={T\bibinitperiod},
+      }}%
+    }
+    \name{editor}{2}{}{%
+      {{hash=MK}{%
+         family={Markantonakis},
+         familyi={M\bibinitperiod},
+         given={Konstantinos},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=MK}{%
+         family={Mayes},
+         familyi={M\bibinitperiod},
+         given={Keith},
+         giveni={K\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer New York}%
+    }
+    \strng{namehash}{MGKCGT1}
+    \strng{fullhash}{MGKCGT1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \field{booktitle}{Secure Smart Embedded Devices, Platforms and
+  Applications}
+    \field{title}{Near Field Communication}
+    \field{year}{2014}
+  \endentry
+
+  \entry{emvChip}{online}{}
+    \name{author}{1}{}{%
+      {{hash=M}{%
+         family={Mastercard},
+         familyi={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{M1}
+    \strng{fullhash}{M1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \field{title}{EMV Chip}
+    \verb{url}
+    \verb https://www.mastercard.at/de-at/haendler/sicherheit-geschaeft/emv-chi
+    \verb p.html
+    \endverb
+    \field{urlday}{26}
+    \field{urlmonth}{04}
+    \field{urlyear}{2018}
+  \endentry
+
+  \entry{oenbSepa}{online}{}
+    \name{author}{1}{}{%
+      {{hash=√N}{%
+         prefix={√ñsterreichische},
+         prefixi={√\bibinitperiod},
+         family={Nationalbank},
+         familyi={N\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{N√1}
+    \strng{fullhash}{N√1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{N}
+    \field{sortinithash}{N}
+    \field{title}{Standardisierung und SEPA}
+    \verb{url}
+    \verb https://www.oenb.at/Zahlungsverkehr/Kartenzahlungen/Standardisierung-
+    \verb und-SEPA.html
+    \endverb
+    \field{urlday}{26}
+    \field{urlmonth}{04}
+    \field{urlyear}{2018}
+  \endentry
+
+  \entry{nfcForum}{online}{}
+    \name{author}{1}{}{%
+      {{hash=N}{%
+         family={NearFieldCommunication.org},
+         familyi={N\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{N1}
+    \strng{fullhash}{N1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{N}
+    \field{sortinithash}{N}
+    \field{title}{NFC Forum}
+    \verb{url}
+    \verb http://nearfieldcommunication.org/history-nfc.html
+    \endverb
+    \field{urlday}{15}
+    \field{urlmonth}{05}
+    \field{urlyear}{2018}
+  \endentry
+
+  \entry{howemvpaymentworks}{online}{}
+    \name{author}{1}{}{%
+      {{hash=NJ}{%
+         family={Netten},
+         familyi={N\bibinitperiod},
+         given={Jeroen},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{NJ1}
+    \strng{fullhash}{NJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{N}
+    \field{sortinithash}{N}
+    \field{title}{Step by step: How does a EMV contact card payment work?}
+    \verb{url}
+    \verb https://www.quora.com/Step-by-step-How-does-a-EMV-contact-card-paymen
+    \verb t-work
+    \endverb
+    \field{year}{2016}
+    \field{urlday}{29}
+    \field{urlmonth}{04}
+    \field{urlyear}{2018}
+  \endentry
+
+  \entry{posRiskManagement}{online}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{P}
+    \field{sortinithash}{P}
+    \field{title}{POS Terminal Risk Management Rules You Need to Know}
+    \verb{url}
+    \verb http://blog.unibulmerchantservices.com/pos-terminal-risk-management-r
+    \verb ules-you-need-to-know/
+    \endverb
+    \field{urlday}{02}
+    \field{urlmonth}{05}
+    \field{urlyear}{2018}
+  \endentry
+
+  \entry{smartcasedElectricity}{misc}{}
+    \name{author}{3}{}{%
+      {{hash=RW}{%
+         family={Raad},
+         familyi={R\bibinitperiod},
+         given={Wasim},
+         giveni={W\bibinitperiod},
+      }}%
+      {{hash=ST}{%
+         family={Sheltami},
+         familyi={S\bibinitperiod},
+         given={Tarek},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=SM}{%
+         family={Sallout},
+         familyi={S\bibinitperiod},
+         given={Mohammad},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{RWSTSM1}
+    \strng{fullhash}{RWSTSM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{R}
+    \field{sortinithash}{R}
+    \field{isbn}{978-1-4244-0971-6}
+    \field{pages}{219 \bibrangedash  224}
+    \field{title}{A Smart Card Based Prepaid Electricity System}
+    \field{month}{08}
+    \field{year}{2007}
+  \endentry
+
+  \entry{eavesdropNfc}{article}{}
+    \name{author}{2}{}{%
+      {{hash=SKH}{%
+         family={Siitonen\bibnamedelima Kortvedt},
+         familyi={S\bibinitperiod\bibinitdelim K\bibinitperiod},
+         given={Henning},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=MS}{%
+         family={Mj√∏lsnes},
+         familyi={M\bibinitperiod},
+         given={Stig},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SKHMS1}
+    \strng{fullhash}{SKHMS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{title}{Eavesdropping Near Field Communication}
+    \verb{url}
+    \verb https://www.researchgate.net/publication/265976861_Eavesdropping_Near
+    \verb _Field_Communication
+    \endverb
+    \field{journaltitle}{The Norwegian Information Security Conference (NISK)
+  2009}
+    \field{year}{2009}
+    \field{urlday}{10}
+    \field{urlmonth}{05}
+    \field{urlyear}{2018}
+  \endentry
+
+  \entry{iso7816-4}{online}{}
+    \name{author}{1}{}{%
+      {{hash=fSIIO}{%
+         prefix={for},
+         prefixi={f\bibinitperiod},
+         family={Standardisation\bibnamedelima (ISO)},
+         familyi={S\bibinitperiod\bibinitdelim I\bibinitperiod},
+         given={International\bibnamedelima Organization},
+         giveni={I\bibinitperiod\bibinitdelim O\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SIIOf1}
+    \strng{fullhash}{SIIOf1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{title}{ISO/IEC 7816-4:2013 Identification cards -- Integrated
+  circuit cards -- Part 4: Organization, security and commands for interchange}
+    \verb{url}
+    \verb https://www.iso.org/standard/54550.html
+    \endverb
+    \field{year}{2013}
+    \field{urlday}{28}
+    \field{urlmonth}{04}
+    \field{urlyear}{2018}
+  \endentry
+
+  \entry{iso14443-1}{online}{}
+    \name{author}{1}{}{%
+      {{hash=fSIO}{%
+         prefix={for},
+         prefixi={f\bibinitperiod},
+         family={Standardization},
+         familyi={S\bibinitperiod},
+         given={International\bibnamedelima Organization},
+         giveni={I\bibinitperiod\bibinitdelim O\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SIOf1}
+    \strng{fullhash}{SIOf1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{title}{ISO/IEC 14443-1:2016 Identification cards -- Contactless
+  integrated circuit cards -- Proximity cards -- Part 1: Physical
+  characteristics}
+    \verb{url}
+    \verb https://www.iso.org/standard/70170.html
+    \endverb
+    \field{urlday}{26}
+    \field{urlmonth}{04}
+    \field{urlyear}{2018}
+  \endentry
+
+  \entry{iso14443-2}{online}{}
+    \name{author}{1}{}{%
+      {{hash=fSIO}{%
+         prefix={for},
+         prefixi={f\bibinitperiod},
+         family={Standardization},
+         familyi={S\bibinitperiod},
+         given={International\bibnamedelima Organization},
+         giveni={I\bibinitperiod\bibinitdelim O\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SIOf1}
+    \strng{fullhash}{SIOf1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{title}{ISO/IEC 14443-2:2016 Identification cards -- Contactless
+  integrated circuit cards -- Proximity cards -- Part 2: Radio frequency power
+  and signal interface}
+    \verb{url}
+    \verb https://www.iso.org/standard/70170.html
+    \endverb
+    \field{urlday}{26}
+    \field{urlmonth}{04}
+    \field{urlyear}{2018}
+  \endentry
+
+  \entry{iso14443-3}{online}{}
+    \name{author}{1}{}{%
+      {{hash=fSIO}{%
+         prefix={for},
+         prefixi={f\bibinitperiod},
+         family={Standardization},
+         familyi={S\bibinitperiod},
+         given={International\bibnamedelima Organization},
+         giveni={I\bibinitperiod\bibinitdelim O\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SIOf1}
+    \strng{fullhash}{SIOf1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{title}{ISO/IEC 14443-3:2016 Identification cards -- Contactless
+  integrated circuit cards -- Proximity cards -- Part 3: Initialization and
+  anticollision}
+    \verb{url}
+    \verb https://www.iso.org/standard/70170.html
+    \endverb
+    \field{urlday}{26}
+    \field{urlmonth}{04}
+    \field{urlyear}{2018}
+  \endentry
+
+  \entry{iso14443-4}{online}{}
+    \name{author}{1}{}{%
+      {{hash=fSIO}{%
+         prefix={for},
+         prefixi={f\bibinitperiod},
+         family={Standardization},
+         familyi={S\bibinitperiod},
+         given={International\bibnamedelima Organization},
+         giveni={I\bibinitperiod\bibinitdelim O\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SIOf1}
+    \strng{fullhash}{SIOf1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{title}{ISO/IEC 14443-4:2016 Identification cards -- Contactless
+  integrated circuit cards -- Proximity cards -- Part 4: Transmission protocol}
+    \verb{url}
+    \verb https://www.iso.org/standard/70170.html
+    \endverb
+    \field{urlday}{26}
+    \field{urlmonth}{04}
+    \field{urlyear}{2018}
+  \endentry
+
+  \entry{iso:iec18092:2013}{online}{}
+    \name{author}{1}{}{%
+      {{hash=fSIIO}{%
+         prefix={for},
+         prefixi={f\bibinitperiod},
+         family={Standardization\bibnamedelima (ISO)},
+         familyi={S\bibinitperiod\bibinitdelim I\bibinitperiod},
+         given={International\bibnamedelima Organization},
+         giveni={I\bibinitperiod\bibinitdelim O\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SIIOf2}
+    \strng{fullhash}{SIIOf2}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{title}{ISO/IEC 18092:2013: Information technology --
+  Telecommunications and information exchange between systems -- Near Field
+  Communication -- Interface and Protocol (NFCIP-1)}
+    \verb{url}
+    \verb https://www.iso.org/standard/56692.html
+    \endverb
+    \field{year}{2013}
+    \field{urlday}{15}
+    \field{urlmonth}{04}
+    \field{urlyear}{2018}
+  \endentry
+
+  \entry{nfcHealthMonitoring}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=SA}{%
+         family={Supriya},
+         familyi={S\bibinitperiod},
+         given={A.},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=RS}{%
+         family={Ramgopal},
+         familyi={R\bibinitperiod},
+         given={S.},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=GSM}{%
+         family={George},
+         familyi={G\bibinitperiod},
+         given={S.\bibnamedelima M.},
+         giveni={S\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+    }
+    \keyw{biomedical communication;health care;hospitals;medical information
+  systems;near-field communication;patient monitoring;NFC cards;NFC tag;NFC
+  technology;NFC-enabled devices;current health monitoring methods;electronic
+  health record;health parameters;health status;near field field communication
+  based system;standard based wireless communication technology;Biomedical
+  monitoring;Databases;Hospitals;Monitoring;Temperature sensors;Wireless
+  communication;Electronic Health Record;NFC-enabled;Near Field
+  Communication;Wireless Communication;Wireless Sensors}
+    \strng{namehash}{SARSGSM1}
+    \strng{fullhash}{SARSGSM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{booktitle}{2017 2nd IEEE International Conference on Recent Trends
+  in Electronics, Information Communication Technology (RTEICT)}
+    \verb{doi}
+    \verb 10.1109/RTEICT.2017.8256678
+    \endverb
+    \field{pages}{653\bibrangedash 657}
+    \field{title}{Near field communication based system for health monitoring}
+    \field{year}{2017}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{practicalExperiencesNfcRelayAndroid}{article}{}
+    \name{author}{2}{}{%
+      {{hash=VJ}{%
+         family={Vila},
+         familyi={V\bibinitperiod},
+         given={Jos{\'e}},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=RRJ}{%
+         family={Rodr\'iguez},
+         familyi={R\bibinitperiod},
+         given={Ricardo\bibnamedelima J.},
+         giveni={R\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{VJRRJ1}
+    \strng{fullhash}{VJRRJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{V}
+    \field{sortinithash}{V}
+    \field{title}{Practical Experiences on NFC Relay Attacks with Android}
+    \verb{url}
+    \verb https://link.springer.com/chapter/10.1007/978-3-319-24837-0_6
+    \endverb
+    \field{journaltitle}{International Workshop on Radio Frequency
+  Identification: Security and Privacy Issues}
+    \field{year}{2015}
+    \field{urlday}{15}
+    \field{urlmonth}{01}
+    \field{urlyear}{2018}
+  \endentry
+
+  \entry{introToRfid}{article}{}
+    \name{author}{1}{}{%
+      {{hash=WR}{%
+         family={Want},
+         familyi={W\bibinitperiod},
+         given={R.},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \keyw{radiofrequency identification;RFID technology;mainstream
+  applications;radio frequency
+  identification;Batteries;Costs;Encapsulation;Environmental factors;Intrusion
+  detection;Large-scale systems;Manufacturing;RFID tags;Radiofrequency
+  identification;Temperature;Radio frequency identification (RFID);automatic
+  identification;electronic tagging}
+    \strng{namehash}{WR1}
+    \strng{fullhash}{WR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \verb{doi}
+    \verb 10.1109/MPRV.2006.2
+    \endverb
+    \field{issn}{1536-1268}
+    \field{number}{1}
+    \field{pages}{25\bibrangedash 33}
+    \field{title}{An introduction to RFID technology}
+    \field{volume}{5}
+    \field{journaltitle}{IEEE Pervasive Computing}
+    \field{year}{2006}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+\enddatalist
+\endinput

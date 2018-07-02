@@ -1,0 +1,1 @@
+HostApduService -> Messenger -> MessageQueue -> Looper -> Handler

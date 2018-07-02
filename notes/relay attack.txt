@@ -1,0 +1,49 @@
+----------------------------------------- http://rfidsec2015.iaik.tugraz.at/wp-content/uploads/2015/08/006-Villa-slides.pdf --------------------------
+
+Von Relay Attacken wurde lange Zeit gedacht, dass sie schwierig durchzuführen sind aufgrund physischer Limitationen des Kommunikationskanals (Zeit) und 
+der benötigten spezialisierten Hardware, die nötig war um sie auszuführen. Mit NFC-fähigen Mobilgeräten hat sich das jedoch geändert. Nun ist eine
+Relay Attacke mit beliebigen NFC-fähigen Geräten möglich, was auch schon vielfach unter Beweis gestellt wurde. 
+Relay Attacken wurden zuerst von John Conway 1976 eingeführt, als er beschrieb, wie ein Schach Laie gegen einen Großmeister gewinnen könnte. 
+Der Angreifer spielt gegen 2 Schach Meister gleichzeitig, wobei er bei beiden Partien eine andere Farbe hat. Er leitet dann einfach immer
+den Zug des einen Meisters an den anderen weiter. Die Meister glauben, sie spielen gegen den Angreifer, obwohl sie effektiv gegen sich gegenseitig
+spielen. Das erste Vorkommen einer Relay Attacke im Kontext der Sicherheit durch Nähe wird in "Desmedt, Y.: Major security problems with the “unforgeable” 
+(Feige-)Fiat-Shamir proofs for identity and how to overcome them" beschrieben. Desmedt definiert "Mafia Fraud" als Relay Attacke wobei ein 
+"Dishonest Prover" und ein "Dishonest Verifier" zusammenarbeiten und über einen Kommunikationslink kommunizieren, um einen "Honest Prover" und einen 
+"Honest Verifier" reinzulegen. 
+
+
+---------------------------------------- https://link.springer.com/chapter/10.1007/978-3-319-39814-3_8 ----------------------------------- off the shelf
+
+Durch Relay Attacken ist es möglich, dass sich eine SmartCard nicht mehr in der Nähe eines POS Terminals befinden muss. Dadurch kann mit 
+Karten, die sich Kilometer entfernt befinden, an einem Terminal gezahlt werden. 
+Relay Attacken sind schwierig zu verhindern, weil sie nicht durch Applikationslevel-Kryptographie verhindert werden können. 
+Gegenmaßnahmen können in 2 Kategorien eingeteilt werden: Entweder die Karte wird beschützt oder das System selbst. 
+Die einfachste Art sich gegen Relay Attacken zu schützen ist, den Chip gegen jegliche Aktivierung aus der Ferne abzuschirmen (RFID Hülle, Metallfolie,...).
+Weiters können Relay Attacken durch sekundäre Authentifikationsmechanismen wie biometrische Merkmale oder Passwörter verhindert werden, was aber 
+sehr unpraktisch und ungewollt ist. 
+Typischerweise braucht eine durch eine Relay Attacke weitergeleitete Transaktion länger als gewöhnlich. Theoretisch könnten Relay Attacken verhindert werden, 
+indem für jede Karten-POS-Kombination eine maximale Zeitspanne festgelegt wird, die die Transaktion dauern kann. Eine generelle Obergrenze der Zeit 
+der Kommunikation festzulegen, reicht im Allgemeinen nicht aus, um eine Relay Attacke zu verhindern. 
+
+Distance Bounding beschreibt eine Gegenmaßnahme zu Relay Attacken. Dadurch kann eine maximale Entfernung der Karte zum Terminal festgestellt werden. 
+Beim Distance Bounding wird davon ausgegangen, dass Karte und POS messen, wie lange eine bestimmte Nachricht (Secret) braucht. Dadurch kann die 
+Entfernung zwischen den beiden Komponenten berechnet werden. Theoretisch könnte eine Relay Attacke dann nur mehr mit spezieller Hardware durchgeführt 
+werden, die Daten nahe der Lichtgeschwindigkeit überträgt. 
+
+
+---------------------------------- http://resources.infosecinstitute.com/near-field-communication-nfc-technology-vulnerabilities-and-principal-attack-schema/ -------------
+
+Der Forscher Michael Roland schaffte es, trojanische Relay Software zu bauen, die Zahlungskommandos erhalten und die Daten auf Google's SE nutzen konnte, um eine Live
+Transaktion durchzuführen. 
+
+--------------------------------------- https://link.springer.com/content/pdf/10.1007%2F978-3-642-16822-2.pdf-------------------------------------------# practical nfc peer to peer
+
+Sicherheitsmaßnahmen auf Application Layer Ebene können von Relay Attacken überbrückt werden, weil die kryptographischen Schlüssel und Sicherheitschallenges einfach
+weitergeleitet werden. Ein Weg um Relay Attacken zu erkennen, ist die Round Trip Zeiten zu messen und ein Limit festzulegen. Das ist aber nicht praktikabel, weil 
+auch die Zeit von echten Karten variieren kann. 
+Wenn jedes Gerät einen RF Fingerprint hätte, könnten Relay Attacken auch verhindert werden, weil ihr RF Fingerabdruck nicht übereinstimmen würde. Das ist 
+aber praktisch nicht umsetzbar, weil Geräte verschieden Hardware Plattformen haben und oft von mehreren Herstellern erzeugt werden. 
+Zusätzliche User-Checks könnten natürlich auch eingeführt werden. Dies würde aber viel Verantwortung auf den User legen und voraussetzen, dass dieser Detailwissen 
+über Transaktionen besitzt. Außerdem zerstört es die Bequemlichkeit von NFC. 
+Ein beliebter Ansatz sind ortsbasierte Services, die die Location von mehreren Netzwerkknoten vergleichen. Location Informationen werden dann in die Kommunikation
+integriert und verifiziert. 

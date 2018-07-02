@@ -1,0 +1,61 @@
+http://rfidsec2015.iaik.tugraz.at/wp-content/uploads/2015/08/006-Villa-slides.pdf
+http://its-wiki.no/images/7/7e/UNIK4700_Security_in_NFC.pdf
+http://ieeexplore.ieee.org/document/4529403/
+http://ieeexplore.ieee.org/document/6269257/
+https://www.esat.kuleuven.be/cosic/publications/article-1288.pdf
+
+Nächste Artikel: 
+
+http://ieeexplore.ieee.org/abstract/document/1607558/
+https://brage.bibsys.no/xmlui/bitstream/handle/11250/262988/742061_FULLTEXT01.pdf?sequence=1&isAllowed=y
+http://ieeexplore.ieee.org/document/4529403/
+http://ieeexplore.ieee.org/document/6269257/
+https://www.esat.kuleuven.be/cosic/publications/article-1288.pdf
+
+
+------------------------------------ http://rfidsec2015.iaik.tugraz.at/wp-content/uploads/2015/08/006-Villa-slides.pdf ------------------------------
+
+Potenzielle Risiken von NFC sind Eavesdropping, Data Modification und Relay Attacken. 
+
+
+------------------------------- https://link.springer.com/chapter/10.1007/978-3-319-39814-3_8 -------------------------------------------
+
+Es gibt 3 verschiedene Authentikationsmechanismen für EMV Karten. Static Data Authentication (SDA), Dynamic Data Authentication (DDA) und
+Combined Data Authentication (CDA). SDA ist anfällig gegenüber der sogenannten "Yes-Card Attack", wobei einfach die statischen Daten auf
+der Karte kopiert werden und danach benutzt werden, um statische signierte Transaktionen durchzuführen. 
+Eine weitere Schwachstelle ist die "EMV Pin verification wedge" Schwachstelle, wobei eine MITM Attacke genutzt werden kann, um eine 
+gestohlene Karte dazu zu bringen, jeden PIN zu akzeptieren. 
+Bei der Pre-Replay Attacke wird ein modifiziertes Terminal benutzt, um Daten (PIN, Kryptogramme) von Smartcards zu sammeln und diese dann später beim 
+selben Terminaltyp wiederzugeben. Das ist dadurch möglich, dass bestimmte Terminals vorhersehbare "Random" Nummern erzeugen. 
+
+
+----------------------------------- http://resources.infosecinstitute.com/near-field-communication-nfc-technology-vulnerabilities-and-principal-attack-schema/ ------------------
+
+Obwohl die Übertragungsdistanz so klein ist, der Standard sorgt nicht für eine sichere Datenübertragung und es sind in der Literatur mehrere Attacken bekannt.
+Beispielsweise ist die Technologie mit MITM Attacken angreifbar (Stand vor 2014), was auch in "Chip and Pin is broken" gezeigt wird. Prinzipielle Angriffe auf 
+NFC sind Eavesdropping, Data Modification, Data Corruption, Spoofing und die Relay Attacke. Bei Eavesdropping benutzt der Angreifer eine Antenne um die Kommunikation aufzuzeichnen. Um das zu 
+verhindern, muss zwischen den beiden NFC Geräten eine sichere Verbindung aufgebaut werden. 
+
+Bei Data Modification wird die Kommunikation vom Angreifer abgefangen und verändert weitergeleitet. Diese Art der Attacke ist sehr schwierig durchzuführen,
+kann aber funktionieren. Meistens wird das mit einem RFID Jammer durchgeführt (was auch immer das ist). Überprüfen des RF Feldes während der Übertragung
+macht es möglich, diese Attacke zu erkennen. 
+
+Data Corruption ist eine Form der DOS Attacke. Die Kommunikation wird dabei so geblockt oder gestört, dass der Empfänger die Daten nicht ordnungsgemäß empfangen kann. 
+Eine häufige Gegenmaßnahme ist das Checken auf RF Signale während der Datenübertragung. 
+
+Beim Spoofing gibt eine dritte Partei vor, jemand anderer zu sein und einen User dazu animieren, sein NFC Gerät gegen den Tag zu halten. Schafft es ein Angreifer, einen
+NFC TAG so zu verändern, dass bei der Aktivierung schädlicher Code ausgeführt wird, kann dieser teilweise automatisch auf den Opfergeräten ausgeführt werden, weil diese 
+teilweise so konfiguriert sind, dass der Code des Tags automatisch ausgeführt wird. 
+Eine Gegenmaßnahme ist die richtige Konfiguration der Geräte, um eine Meldung vor der Ausführung von Code auszugeben. 
+
+MITM Attacken sind laut diesem Artikel für NFC nicht durchführbar. 
+
+------------------------------------ http://ieeexplore.ieee.org/xpls/icp.jsp?arnumber=7160477-----------------------------------------
+
+Im ISO 14443 wird die Frame Waiting Time (FWT) für Smartcard und Reader Kommunikation eingeführt. Sie definiert die maximale Antwortzeit nach dem Ende der Daten, die 
+der Reader gesendet hat. Die Variable wurde zur Verhinderung von Relay Attacken eingeführt, kann aber von Angreifern verändert werden bzw. werden meist aktive Mobilgeräte
+für Relay Attacken verwendet, wobei für diese keine Timing Limitationen bestehen. Daher ist die Variable unnötig. 
+
+
+
+

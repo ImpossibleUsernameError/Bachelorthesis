@@ -1,0 +1,8 @@
+-------------------------------------------- http://ieeexplore.ieee.org/xpls/icp.jsp?arnumber=7160477 ---------------------------------------
+
+Laut einer Studie von Collins existieren ungefähr 7.3 Milliarden Mobilgeräte (Stand 2015). 
+
+NFC macht es sehr leicht, eine Verbindung zwischen 2 Mobilgeräten aufzubauen und eine einfache Datenübertragung zu ermöglichen. 
+NFC wird in mittlerweile in alltäglichen Applikationen benutzt und hat zahlreiche Anwendungsfälle. 
+Haupteinsatzbereiche, die von NFC profitieren können sind Zahlungen, elektronische Identität, elektronische Tickets, Zahlungen mit mobilen Geräten, Datentransfer zwischen
+Mediengeräten wie Kameras, Handys, ..., P2P Connection, Loyalty Coupons, Patientenmonitoring im Gesundheitswesen, Spiele, Zutrittskontrollen. 

@@ -1,0 +1,45 @@
+---------------------------------------http://cardwerk.com/smart-card-standard-iso7816-4-section-5-basic-organizations/   ----------------------------------
+
+Die Kommunikation eines POS-Terminals mit einer SmartCard erfolgt in erster Linie über Application Protocol Data Units (APDUs).
+Es gibt 2 Arten von Apdus: Command- unDd Response-Apdus. Das Command Apdu besteht dabei aus einem Header und einem optionalen 
+Body. Der Header beinhaltet die Elemente Class, Instruction, P1 und P2. Der Body besteht aus einem Lc, einem Data und einem Le Field, wobei
+das Lc Feld die Länge des Data Blocks angibt und das Le Feld, die maximale Länge des erwarteten Responses. 
+Ein Response Apdu beinhaltet einen Body sowie einen Trailer wobei der Body ein Data Feld enthält. Der Trailer besteht aus SW1 und SW2, welche
+gemeinsam ein Statuswort angeben. Dieses gibt unterschiedliche Arten von Status der Verarbeitung des zugehörigen Command Apdus an. 
+Für die Datenfelder in einem APDU gibt es 2 Möglichkeiten, um mit ISO 7816/4 kompatibel zu sein. Für Command Apdus ist die Struktur für jedes Kommando
+meist im Standard festgelegt. Response Apdus sind fast immer TLV enkodiert, was bedeutet, dass ein Datenfeld aus einem oder mehreren TLVs besteht. 
+Ein TLV ist eine Struktur, die aus einem Tag, der die Art der Daten, einer Länge und einem Value Feld, welches die tatsächlichen Daten enthält, besteht. 
+
+--------------------------------------------- https://www.researchgate.net/publication/4284180_A_Smart_Card_Based_Prepaid_Electricity_System -----------------------------
+
+Eine SmartCard ist eine Plastikkarte, welche einen integrierten Schaltkreis besitzt. Nahezu jede heutzutage übliche Debit- oder Kreditkarte ist eine SmartCard.
+Üblicherweise besteht eine SmartCard aus einem ROM-Speicher einem Flash-Speicher, einem EEPROM sowie einer CPU. Eine SmartCard könnte daher durchaus als Mini-Computer bezeichnet
+werden. Auch ein Betriebssystem ist auf einer SmartCard vorhanden. Wie auch auf einem PC sind auf einer SmartCard mehrere Applikationen enthalten.  
+
+Die Dateistruktur einer SmartCard besteht aus einem Master-File(MF) (zu vergleichen mit dem Root-Directory auf Computern) und untergeordneten Elementary Files(EF).
+Auch Unterordner, sogenannte Dedicated Files(DF) sind möglich. Jedes DF direkt unter dem MF ist einer eigenen Applikation zugeordnet. 
+
+
+---------------------------------------- EMV Specification (Book C2 Kernel Specification) -------------------------------------------------------
+-------------------------------https://www.emvco.com/wp-content/uploads/2017/05/EMV_v4.3_Book_3_Application_Specification_20120607062110791.pdf---------------------------------
+-------------------------------https://blog.saush.com/2006/09/08/getting-information-from-an-emv-chip-card/ ---------------------------------------------------
+-------------------------------https://www.quora.com/Step-by-step-How-does-a-EMV-contact-card-payment-work -------------------------------------------
+
+Bei jedem Kernel funktioniert die Zahlung etwas unterschiedlich.
+Typischerweise wird bei einer elektronischen Zahlung mit einer Kernel 2 Smartcard (Mastercard) zuerst die Applikation ausgewählt, die zur Zahlung verwendet werden soll.
+Dazu schickt das POS-Terminal ein Select Apdu an die Karte. Diese antwortet mit einem Response, der diverse Applikationsdaten enthält. Die Application ID 
+ist beispielsweise enthalten. Nachdem eine Applikation ausgewählt wurde, wird ein GET-PROCESSING-OPTIONS Kommando an die Karte gesendet. In der Antwort 
+zu diesem Kommando sind Daten (AIP und AFL) enthalten, die angeben, welche Funktionen (statische Authentifizierung, dynamische Authentifikation, Terminal Risk Management, ...)
+die Applikation unterstützt und wo die App-spezifischen Daten zu finden sind (Liste von File Identifiern). Diese Files können gelesen werden und daraus Informationen
+wie zB. die Kreditkartennummer und der Name des Karteninhabers gewonnen werden. Nun wird eine Daten Authentifikation durchgeführt, je nachdem welchen Authentikations-Modus
+die Karte unterstützt. Außerdem wird überprüft ob die Karte die auszuführende Transaktion erlaubt oder nicht (mithilfe eines Application Usage Control records) und ob sie abgelaufen bzw.
+schon gültig ist. Möglicherweise wird als nächstes eine Cardholder Verification durchgeführt (Pin Eingabe zB). Vom Terminal wird daraufhin ein Terminal Risk Management durchgeführt.
+Während all dieser Schritte werden haufenweise Flags in einem Array gesetzt. Sowohl das Terminal, als auch die Karte haben Einstellungen, welche basierend auf den gesetzten Bits
+die nächste Aktion auswählen. Die möglichen Aktionen beschränken sich auf Denial, Online und Default. Für jede dieser Aktionen gibt es sowohl auf der Karte als auch 
+im Terminal sogenannte Action Codes, die mit einem OR kombiniert und dann mit dem Bit-Array verglichen werden. Basierend darauf trifft das Terminal eine Entscheidung, was als 
+nächste Aktion passieren soll. Daraufhin wird ein GENERATE APPLICATION CRYPTOGRAM (AC) an die Karte gesendet, um deren Erlaubnis zu erfragen. Daraufhin führt
+die Karte eine Risikoanalyse durch und teilt dem Terminal das Ergebnis mithilfe eines Cryptograms mit (Je nach Aktion unterschiedlich). Das Cryptogram ist ein kryptographischer 
+Hash von Transaktionsdaten, der nicht gefaked werden kann. Ist das Cryptopgram vom Typ einer Offline bzw. Decline Aktion, ist die Transaktion jetzt beendet. Bei einer Online
+Transaktion wird der Aussteller der Karte vom Terminal kontaktiert, um die Transaktion entweder zuzulassen bzw. abzulehnen. Abgesehen davon ist es auch möglich,
+dass der Aussteller Scripts sendet, die auf der Karte ausgeführt werden sollen. Wurde die Transaktion zugelassen, wird noch ein zweites
+Cryptogram von der Karte angefordert, das verwendet wird, um den Betrag vom Kartenaussteller zu erhalten. 

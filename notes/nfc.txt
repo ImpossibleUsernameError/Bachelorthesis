@@ -1,0 +1,83 @@
+----------------------http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.395.8428&rep=rep1&type=pdf#page=11-------------------------------------------
+
+NFC ermöglicht eine drahtlose Verbindung zwischen zwei Geräten oder Gegenständen, indem sie nahe aneinander gehalten werden.
+Datenübertragungsrate bis 424 kbit/s. 
+Basiert auf RFID und SmartCards. 
+
+RFID ist eine Technik für kontaktlose Identifikation sowie Datenerfassung und -speicherung. 
+Die Datenübertragung erfolgt über ein elektromagnetisches Feld. 
+Daten werden auf Tags gespeichert. Lesegeräte lesen/schreiben sie. 
+Tags bestehen aus einem Mikrochip und einer Spule als Antenne. 
+Es gibt zwei Arten von Tags: passiv und aktiv. Passive haben keine Energieversorgung, aktive eine Batterie.
+Passive Tags lassen Entfernung von max 120cm zu, aktive bis 100m.
+
+Smartcards sind Prozessorchipkarten. Sie haben Mikroprozessor, Speicher und OS. 
+
+NFC arbeitet auf einer festgelegten Frequenz von 13,56 MHz. NFC besitzt 2 Modi: aktiv und passiv. 
+Beim aktiven erzeugen Sender und Empfänger jeweils ein elektromagnetisches Feld. 
+Beim passiven erzeugt nur der Sender ein Feld. 
+NFC-Kommunikation hat 3 Modi: Peer-to-Peer, Read/Write und Card Emulation.
+Peer-to-Peer: 2 aktive Geräte tauschen Daten. 
+Read/Write: Ein aktives Gerät liest bzw. schreibt Daten von/auf Tags. 
+Card Emulation: Ein passives Gerät verhält sich wie eine Smartcard.
+RFID unterstützt keine Peer-to-Peer Kommunikation. 
+
+
+
+----------------------------http://ieeexplore.ieee.org/document/8262563/----------------------------------------
+
+Eine Anwendung von NFC wird entwickelt: Beim Scannnen von NFC Tags in einem Museum werden Informationen zu den Kunstwerken angezeigt.
+NFC kommuniziert über magnetische Feldinduktion. Ein wichtiger Unterschied zwischen RFID und NFC ist, dass NFC häufig auf mobilen Geräten
+eingesetzt wird. Das bedeutet, dass dynamischer Content gesendet werden kann. 
+
+
+
+----------------------------http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8256678&tag=1------------------------
+
+NFC ist standardisiert in ISO 18092, ETSI TS 102 190 und ECMA 340. Daten werden über das Prinzip von magnetischer, induktiver Kopplung übertragen. 
+Ein Vorteil von NFC gegenüber anderen Technologien wie zB. Bluetooth ist, dass der Verbindungsaufbau sehr schnell geht.
+In dieser Arbeit wird beschrieben, wie NFC im Gesundheitsbereich genutzt werden kann, um Prozesse zu beschleunigen. Durch drahtlose NFC Sensoren
+können Doktoren zB in Sekundenschnelle die Krankenakte von Patienten einsehen kann, indem er einen NFC Tag scannt. Auch ständiges Reporting der 
+Gesundheitswerte kann durchgeführt werden.
+NFC wird auch für elektronische Fahrkarten verwendet, wobei zB die gefahrene Distanz getrackt wird. 
+
+
+
+
+----------------------https://link.springer.com/chapter/10.1007/978-1-4614-7915-4_15--------------------------------------------
+
+NFC unterstützt SmartCards konform mit ISO 14443. Die Rollen des Intiatiors der Verbindung sowie des Targets werden automatisch vor dem Verbindungsaufbau 
+festgelegt. Der aktive Initiator generiert das elektromagnetische Feld. Das passive Target entzieht dem Feld Energie, die der Initiator messen kann und 
+dadurch kann ein Datenaustausch ermöglicht werden. 
+Card Emulation Mode ist das Gegenteil vom Read/Write Mode. 
+Um die 3 Datenübertragungsmodi zu unterstützen, benötigt ein mobiles Gerät einen NFC Chip, ein Secure Element und einen Host Controller. 
+Der NFC Chip ist für die Feldmodulation verantwortlich und um die empfangenen Signale der Antenne in digitale umzuwandeln. Außerdem sorgt der NFC Chip
+für die Kommunikation zwischen Host Controller und SE. Der NFC Chip wird vom Host Controller verwaltet. 
+Das SE ist typischerweise ein Smart Card Controller, der eine echte Smartcard emulieren kann. Das SE kann nicht modifiziert werden. Das SE kann auch
+komplett softwarebasiert sein. Auf dem SE liegen typischerweise mehrere Applikationen. Ein SE muss sichere Datenspeicherung, kryptographische Funktionen sowie
+eine sichere Umgebung zur Codeausführung bereitstellen. Die Kommunikation mit dem SE findet über APDUs statt. 
+
+Der Host Controller managed den NFC Chip und kommuniziert mit dem SE. 
+
+Die API für den NFC Chip in Android ist in ANSI C geschrieben. Auf dem NFC Stack liegt ein Java Native Interface (JNI) Layer, der die Brücke
+zum Android Development darstellt. Das Android System Development Kit (SDK) bietet schlussendlich Java Apis an, die von jeder App genutzt werden können.
+Zugrunde liegt der NFC-Technologie ein Linux Kernel mit PN544 Treiber. 
+
+Der Host Controller in Android kann sich nicht direkt mit dem SE verbinden sondern benutzt Funktionen des Radio Baseband Controllers, welcher sich dann 
+mit der SIM (dem SE) verbindet. 
+
+
+--------------------- http://resources.infosecinstitute.com/near-field-communication-nfc-technology-vulnerabilities-and-principal-attack-schema/ -------------------
+
+Haupteinsatzbereiche, die von NFC profitieren können sind Zahlungen, elektronische Identität, elektronische Tickets, Zahlungen mit mobilen Geräten, Datentransfer zwischen
+Mediengeräten wie Kameras, Handys, ..., P2P Connection, Loyalty Coupons, Patientenmonitoring im Gesundheitswesen, Spiele, Zutrittskontrollen.
+
+-------------------------------- http://ieeexplore.ieee.org/xpls/icp.jsp?arnumber=7160477 --------------------------------------------------
+
+NFC wurde im Jahr 2002 von Philips und Nokia eingeführt. Im Jahr 2004 wurde das NFC Forum gegründet, um Standardisierung zu erreichen. 2010 wurden
+vom NFC Forum Standards eingeführt. 
+
+------------------------------------ https://link.springer.com/content/pdf/10.1007%2F978-3-642-16822-2.pdf------------------------------
+
+Ein NFC Gerät kann sowohl als kontaktlose Karte als auch als kontaktloser Reader agieren. 
+

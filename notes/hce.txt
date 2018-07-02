@@ -1,0 +1,19 @@
+-------------------------------------------------- https://developer.android.com/guide/topics/connectivity/nfc/hce.html --------------------------------------
+
+Wird Card Emulation mit einem Secure Element durchgeführt, wird die zu emulierende Karte über eine Android App dem SE bereitgestellt. Bei einer NFC-Verbindung
+wird dann jegliche Kommunikation vom NFC Controller an das SE weitergeleitet. Das SE kommuniziert direkt mit dem Terminal und keine Android App ist involviert.
+Eine App kann dann das SE nach Informationen zur durchgeführten Transaktion befragen. 
+
+Bei Host-based Card Emulation wird die Kommunikation zur Host CPU, auf der Android Apps laufen, weitergeleitet. Wird das Android Gerät an ein NFC Terminal 
+gehalten, wird das Select AID Kommando des Terminals dazu benutzt, die richtige Android Applikation auszuwählen. Dies passiert dadurch, dass jede HCE App
+in einem XML File definiert, welche AIDs sie verarbeiten kann. Eine AID ist nach ISO 7816-4 eine bis zu 16 Byte lange Zahl, die eine NFC Applikation identifiziert. 
+In einer Klasse, die "HostApduService" erweitert, kann dann festgelegt werden, wie die APDUs verarbeitet werden sollen. 
+Intern benutzt der NFC Controller eine Routing Tabelle, die mit AIDs gefüllt ist, um zu bestimmen, wohin eine AID geroutet werden soll. Dadurch ist außerdem 
+eine Koexistenz von HCE Apps und SE Karten möglich. HCE Apps sind mithilfe der BIND_NFC_SERVICE Permission geschützt, die es nur dem OS erlaubt, mit dem
+eigenen NFC Service zu kommunizieren. Das versichert, das jedes APDU direkt vom OS kommt und auch direkt wieder an das OS zurückgeht, das die Antwort dann 
+direkt an den NFC Controller weiterleitet. Dies ist der Punkt wo wir einhaken müssen und eine Verbindung zum Angreifer-Gerät aufbauen. 
+
+ -------------------------------------------------------http://rfidsec2015.iaik.tugraz.at/wp-content/uploads/2015/08/006-Villa-slides.pdf ----------------------------------
+
+Während der Initiierung füllt die Klasse "NfcService" die AID Routing Table. Die Routing Table wird dann durchsucht, wenn ein SELECT AID ankommt. Das Routing 
+wird von "Messenger" Objekten durchgeführt, die zwischen NfcService und HostApduService hin- und hergeschickt werden. 

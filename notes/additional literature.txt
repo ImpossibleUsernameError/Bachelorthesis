@@ -1,0 +1,18 @@
+http://rfidsec2015.iaik.tugraz.at/wp-content/uploads/2015/08/006-Villa-slides.pdf
+
+
+payment threats and security 
+
+https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=5504801
+https://ieeexplore.ieee.org/abstract/document/6956556/?part=1
+https://www.rsaconference.com/writable/presentations/file_upload/mbs-t07-mobile-payment-services-security-risks-trends-and-countermeasures_copy1.pdf
+https://www.europeanpaymentscouncil.eu/sites/default/files/kb/file/2017-12/EPC214-17v1.0%202017%20Payment%20Threats%20and%20Fraud%20Trends%20Report_1.pdf
+https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7440226
+https://www.makeuseof.com/tag/nfc-security-contactless-payment-issues/
+https://www.mobilepaymentstoday.com/articles/understanding-the-risks-of-mobile-payments-technology/
+
+possible android sources 
+
+http://www.theseus.fi/bitstream/handle/10024/125290/Korhonen_Niko.pdf?sequence=1&isAllowed=y
+https://media.blackhat.com/bh-us-12/Briefings/C_Miller/BH_US_12_Miller_NFC_attack_surface_Slides.pdf
+http://media.blackhat.com/bh-us-12/Briefings/C_Miller/BH_US_12_Miller_NFC_attack_surface_WP.pdf

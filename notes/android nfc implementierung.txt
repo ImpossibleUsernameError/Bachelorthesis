@@ -1,0 +1,101 @@
+Die Einstiegskomponente in Android für Hostcard Emulation findet sich unter 
+frameworks/base/core/java/nfc. Darin findet sich ein Package, das 
+sich "cardemulation" nennt. In dem Package befindet sich die HostApduService.java Datei, die 
+den Einstiegspunkt für HCE bereitstellt. 
+
+HostApduService muss von jeder HCE App erweitert werden um Funktionalität zur Verfügung stellen
+zu können. Die Methode processCommandApdu (Zeile 391) ist eine abstrakte Methode, die von jeder
+erweiternden Klasse implementiert werden muss. Diese Methode wird aufgerufen, wenn ein 
+SELECT APDU von der NFC Schnittstelle gesendet wird. Der Aufruf der Methode findet in 
+Zeile 258 innerhalb eines MessageHandlers statt. Die NFC Nachrichten werden über das IBinder 
+Interface von Android gesendet. Eine Instanz des Messengers für das HostApduService gibt es 
+demnach im Code des NFC Services. 
+
+Das NFC Service befindet sich unter /packages/apps/Nfc. Unter /src findet sich ebenso wieder
+ein cardemulation Package. Darin befindet sich die HostEmulationManager.java Datei, die 
+für das Handling von Command- sowie Response Apdus verantwortlich ist. Der HostEmulationManager
+besitzt Member Variablen für den Messenger des HostApduService und kann auf diese Art und Weise
+Apdus an diesen übermitteln (zu finden in Zeile 88 und 96). Außerdem besitzt der HostEmulationManager
+wiederum einen Messenger über welchen er die ResponseApdus empfangen kann (Zeile 73). 
+Die Methode "onHostEmulationActivated()" (Zeile 135) dient dazu, HCE zu aktivieren. 
+Nach dieser Aktivierung können Apdus gesendet werden. Dies wird über die Methode 
+"onHostEmulationData(byte[] data)" (Zeile 150) realisiert. Diese Methode wird aufgerufen sobald
+ein Command Apdu von der NFC Schnittstelle empfangen wird. 
+Um zu wissen, an wen das Select Apdu gesendet werden soll, besitzt der HostEmulationManager ein 
+RegisteredAidCache Objekt, das im Prinzip alle registrierten HostApduServices gemeinsam mit 
+den von ihnen registrierten AIDs speichert. In "onHostEmulationData" wird zunächst geprüft, 
+ob die ankommenden Daten ein Select APDU darstellen (Zeile 152). Ist das der Fall, dann wird die zur AID
+passende HostApduService Definition aus dem AidCache geholt (Zeile 167). Das Service wird
+dann durch die "bindServiceIfNeededLocked" Methode (Zeile 292) gebunden. Danach werden die
+Daten gesendet (Zeile 219 bzw dann 329). Beim Messenger wird der HostEmulationManager vor 
+dem Senden noch als Callback für das ResponseApdu registriert (Zeile 327).  
+ResponseApdus werden dann in Zeile 488 über das NfcService weitergesendet. 
+
+Verwaltet wird der HostEmulationManager von der CardEmulationManager Klasse, die sich ebenfalls
+unter /packages/apps/Nfc/src/com.android.nfc/cardemulation befindet. HCE wird in Zeile 114
+aktiviert, Daten werden in Zeile 128 gesendet. 
+
+Die Methoden des CardEmulationManagers werden in der NfcService Klasse ebenfalls im selben 
+Package aufgerufen. Aktivierung von HCE in Zeile 298 und das Senden von Daten in Zeile 305. 
+Das NfcService scheint mehr oder weniger der zentrale Punkt in der Nfc Applikation zu sein.
+Die Hce Methoden überschreiben allerdings die Methoden im DeviceHostListener Interface.  
+
+Der DeviceHostListener ist in der DeviceHost Klasse in /packages/apps/Nfc/src/com/android/nfc zu finden.
+Eine Instanz davon im /packages/apps/Nfc/nci/src/com/android/nfc/dhimpl
+Package. Dort werden auch die Methoden für die Hostcard Emulation aufgerufen. (zeile 397 bzw 401). 
+
+Ab hier ist anzunehmen, dass es im C++ Code im jni package weitergeht. 
+
+
+
+Zusammenfassung: 
+/frameworks/base/core/java/nfc/cardemulation: 
+HostApduService:
+
+391: processCommandApdu
+258: Aufruf processCommandApdu
+
+/packages/apps/Nfc/src/com/android/nfc: 
+
+DeviceHost: 
+
+26: Definition DeviceHostListener Interface
+
+NfcService: 
+
+298: Aktivierung HCE
+305: Senden von HCE Daten
+
+
+/packages/apps/Nfc/src/com/android/nfc/cardemulation:
+
+HostEmulationManager: 
+
+88: Member Variable für HostApduService Messenger
+96: Member Variable für HostApduService Messenger
+73: Messenger zum Empfangen von ResponseApdus
+135: onHostEmulationActivated()
+150: onHostEmulationData(byte[] data)
+152: Überprüfung ob ankommendes Apdu ein Select Apdu ist
+167: Holen der HostApduService Definition aus dem AidCache
+292: Binden des HostApduServices
+219: Aufruf der send-Methode zum Senden an das HostApduService
+329: Wirkliches Senden der Daten 
+327: Registrieren als Callback für ResponseApdus
+488: ResponseApdus werden über das NfcService weiter nach unten gesendet
+
+CardEmulationManager:
+
+114: Aktivieren von HCE
+128: Senden von HCE Daten
+
+
+/packages/apps/Nfc/nci/src/com/android/nfc/dhimpl: 
+
+NativeNfcManager:
+
+397: Aktivierung HCE
+401: Senden von HCE Daten
+
+
+

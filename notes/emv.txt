@@ -1,0 +1,8 @@
+------------------------------------ https://link.springer.com/chapter/10.1007/978-3-319-39814-3_8 -------------------------------
+
+Europay, Mastercard and Visa (EMV) ist ein Protokoll für Smartcard basierte Zahlungen. Ursprünglich wurde es zur Bekämpfung von 
+Magnetic Stripe Card Fraud entwickelt. Außerdem sollte ein weltweiter Standard für chipbasierte Zahlungen und POS etabliert werden. 
+
+---------------------------------------------- http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=5504801&tag=1 ------------------
+
+Das EMV Protokoll kann grob in 3 Teile unterteilt werden: Card Authentication, Cardholder Verification und Transaction Authorization. 
