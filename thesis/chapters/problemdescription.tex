@@ -29,11 +29,27 @@ In folgender Abbildung ist eine Übersicht der Relay Attacke und der zur Durchf�
 	\caption{Übersicht der Relay Attacke}
 \end{figure}
 
-In Abbildung \textbf{XXX} ist in erster Linie ein POS Terminal sowie ein Angreifer- und ein Opfer-Gerät dargestellt. Bei Kontakt mit dem Angreifer initiiert das POS Terminal eine kontaktlose Zahlung über NFC. Die Apdus werden direkt in der Kommunikationsanwendung empfangen und über die WLAN Verbindung an das Opfer weitergeleitet. Die Kommunikationsanwendung, die auf dem Opfer-Gerät standardmäßig im Hintergrund aktiv ist, empfängt die Signale, woraufhin sie eine Kommunikation mit der auf dem Opfer vorhandenen HCE Applikation startet und eine mobile Zahlung in die Wege leitet. 
-Bei der Durchführung der Zahlung werden von der Zahlungsapplikation Response Apdus an die NFC Schnittstelle des Gerätes gesendet, nachdem die HCE Anwendung davon ausgeht, durch NFC aufgerufen worden zu sein. 
-Das modifizierte Betriebssystem leitet nun diese Antworten wieder an die Kommunikationsanwendung zurück, welche diese über WLAN wiederum dem Angreifer mitteilt. Vom Angreifer-Gerät werden die Apdus schlussendlich an das POS Terminal zurückgeleitet und die Relay Attacke wurde erfolgreich durchgeführt. 
+In Abbildung \textbf{XXX} ist in erster Linie ein POS Terminal sowie ein Angreifer- und ein Opfer-Gerät dargestellt. Das POS Terminal wird durch eine Terminal Simulator Software auf dem Computer dargestellt. Über eine Universal Serial Bus (USB) Verbindung wird von einem NFC Reader die NFC Funktionalität zur korrekten Funktionsweise der Terminal Software bereitgestellt. 
+
+ Bei Kontakt mit dem Angreifer wird vom POS Terminal eine kontaktlose Zahlung über NFC eingeleitet. Die Commmand Apdus werden hierbei direkt in der Kommunikationsanwendung empfangen. Diese nutzt nach dem Empfang eines Kommandos die WLAN Verbindung, um das Apdu an das Opfer weiterzuleiten. Die Kommunikationsanwendung, die auf dem Opfer-Gerät standardmäßig im Hintergrund aktiv ist, empfängt die Signale, woraufhin sie eine Kommunikation über das Betriebssystem mit der auf dem Opfer vorhandenen HCE Applikation startet. Die Rolle dieser HCE Applikation kann im Prinzip von jeder handelsüblichen Mobile Payment Anwendung übernommen werden. Diese Anwendung ist das eigentliche Ziel des Angriffes. Nachdem sie vom Betriebssystem gestartet wurde, wird eine mobile Zahlung in die Wege geleitet. 
+Bei der Durchführung der Zahlung von der Zahlungsapplikation Response Apdus an die NFC Schnittstelle des Gerätes gesendet, nachdem die HCE Anwendung davon ausgeht, durch NFC aufgerufen worden zu sein. 
+Das modifizierte Betriebssystem leitet nun diese Antworten an die Kommunikationsanwendung zurück, welche diese über WLAN wiederum dem Angreifer mitteilt. Vom Angreifer-Gerät werden die Apdus schlussendlich an das POS Terminal zurückgeleitet und die Relay Attacke wurde erfolgreich durchgeführt. 
 
 In den nachfolgenden Kapiteln wird ausgeführt, wie die einzelnen Komponenten im Detail umgesetzt wurden, um die beschriebene Funktionalität bereitzustellen. 
+
+\subsection{Die Hostcard Emulation Anwendung}
+
+Das Android Framework stellt zur Implementierung einer Hostcard Emulation Anwendung die Klasse HostApduService zur Verfügung. Diese Android-Service Klasse sorgt für das Annehmen von Command Apdus, nachdem diese von der NFC Schnittstelle empfangen wurden. Um diese empfangenen Apdus verarbeiten zu können, muss die Klasse erweitert und die processCommandApdu Methode überschrieben werden. 
+Welche Applikation auf ein eintreffendes Command Apdu gestartet werden soll, wird vom Betriebssystem festgestellt. Diese besitzt einen Routing Mechanismus, der auf den sogenannten Application IDs (AIDs) aufgebaut ist \cite{androidHce}. Dies sind Identifier, die Zahlungsanwendungen eindeutig identifizieren können und sie müssen bei der Installation einer Mobile Payment App von dieser beim Betriebssystem durch eine XML-Datei in der Anwendung registriert werden \cite{androidHce}.
+
+Die in dieser Arbeit dargestellte Proof-of-Concept Umsetzung einer HCE Applikation verwendet die AID einer Mastercard MAESTRO Debitkarte, die durch die Hexadezimal Darstellung A0000000043060 identifiziert wird. Gemeinsam mit den Standard Identifiern für Zahlungssysteme, die genau genommen noch vor der eigentlichen Anwendung ausgewählt werden, wird die MAESTRO-AID in der aids.xml Datei festgelegt. 
+
+Diese Datei wird bei der Registrierung der HostApduService Klasse in der AndroidManifest.xml Datei referenziert, um dem Betriebssystem mitzuteilen, welche AIDs von der HCE Anwendung verarbeitet werden können. 
+
+Wird eine Smartcard bzw. ein NFC fähiges Mobilgerät, auf dem eine Zahlungsanwendung vorhanden ist, in die Nähe eines POS Terminals gebracht, so wird von diesem das aus den Grundlagen bekannte SELECT PPSE Kommando gesendet. Nach der Antwort, welche AIDs verarbeitet werden können und dem SELECT AID Kommando wird die implementierte HCE Anwendung über die erweiterte HostApduService Klasse aufgerufen. 
+Nach Auswahl der Applikation zur Verarbeitung der Zahlung werden, solange die NFC Verbindung nicht unterbrochen wird, alle nachfolgenden Apdus ebenfalls an diese Klasse weitergeleitet \cite{androidHce}. 
+
+Um eine echte Zahlungsanwendung zu simulieren wurden in der implementierten App die ersten Response Apdus einer echten MAESTRO Debitkarte gespeichert. Als Reaktion auf ein ankommendes Command Apdu wird deshalb das passende Response Apdu zurückgeliefert. 
 
 
 In diesem Kapitel wird die eigentliche Problemlösung in einem oder mehreren Unterkapiteln ausgeführt. Die Strukturierung dieser Kapitel ist naturgemäß sehr stark von der konkre Aufgabenstellung abhängig. Der Name dieses Kapitels ist anzupassen, z.B. Umfeldbeschreibung -- Fallbeispiel \dots, konkreter schreiben je nach Art Diplomarbeit/Fragestellung.
