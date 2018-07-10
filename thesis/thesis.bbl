@@ -17,6 +17,30 @@
 \endgroup
 
 \datalist[entry]{nty/global//global/global}
+  \entry{wifidirect}{online}{}
+    \name{author}{1}{}{%
+      {{hash=AWF}{%
+         family={Alliance},
+         familyi={A\bibinitperiod},
+         given={Wi-Fi},
+         giveni={W\bibinitperiod-F\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{AWF1}
+    \strng{fullhash}{AWF1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \field{title}{Wi-Fi Direct}
+    \verb{url}
+    \verb https://www.wi-fi.org/discover-wi-fi/wi-fi-direct
+    \endverb
+    \field{urlday}{07}
+    \field{urlmonth}{07}
+    \field{urlyear}{2018}
+  \endentry
+
   \entry{nfcRelayWithOffTheShelfHardAndSoftware}{article}{}
     \name{author}{4}{}{%
       {{hash=BT}{%
@@ -165,6 +189,30 @@
     \field{year}{2010}
     \field{urlday}{19}
     \field{urlmonth}{04}
+    \field{urlyear}{2018}
+  \endentry
+
+  \entry{android-bluetooth}{online}{}
+    \name{author}{1}{}{%
+      {{hash=DA}{%
+         family={Developers},
+         familyi={D\bibinitperiod},
+         given={Android},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{DA1}
+    \strng{fullhash}{DA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{title}{Bluetooth overview}
+    \verb{url}
+    \verb https://developer.android.com/guide/topics/connectivity/bluetooth
+    \endverb
+    \field{urlday}{07}
+    \field{urlmonth}{07}
     \field{urlyear}{2018}
   \endentry
 
@@ -367,6 +415,32 @@
     \verb{url}
     \verb http://nearfieldcommunication.org/history-nfc.html
     \endverb
+  \endentry
+
+  \entry{bluetoothPressRelease}{online}{}
+    \name{author}{1}{}{%
+      {{hash=IBS}{%
+         family={Inc.},
+         familyi={I\bibinitperiod},
+         given={Bluetooth\bibnamedelima SIG},
+         giveni={B\bibinitperiod\bibinitdelim S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{IBS1}
+    \strng{fullhash}{IBS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{I}
+    \field{sortinithash}{I}
+    \field{title}{Bluetooth 5 Now Available}
+    \verb{url}
+    \verb https://www.bluetooth.com/news/pressreleases/2016/12/07/bluetooth-5-n
+    \verb ow-available
+    \endverb
+    \field{year}{2016}
+    \field{urlday}{07}
+    \field{urlmonth}{07}
+    \field{urlyear}{2018}
   \endentry
 
   \entry{etsi:ts:102:190}{online}{}
@@ -630,6 +704,32 @@
     \field{urlyear}{2018}
   \endentry
 
+  \entry{bluetooth5}{online}{}
+    \name{author}{1}{}{%
+      {{hash=ND}{%
+         family={Nield},
+         familyi={N\bibinitperiod},
+         given={David},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{ND1}
+    \strng{fullhash}{ND1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{N}
+    \field{sortinithash}{N}
+    \field{title}{Bluetooth 5: everything you need to know}
+    \verb{url}
+    \verb https://www.techradar.com/news/networking/bluetooth-5-everything-you-
+    \verb need-to-know-1323060
+    \endverb
+    \field{year}{2016}
+    \field{urlday}{07}
+    \field{urlmonth}{07}
+    \field{urlyear}{2018}
+  \endentry
+
   \entry{posRiskManagement}{online}{}
     \field{labeltitlesource}{title}
     \field{sortinit}{P}
@@ -710,6 +810,16 @@
     \field{urlday}{10}
     \field{urlmonth}{05}
     \field{urlyear}{2018}
+  \endentry
+
+  \entry{androidtcpinternet}{online}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{title}{Socket Connection Over Internet}
+    \verb{url}
+    \verb https://forum.xda-developers.com/showthread.php?t=1154801
+    \endverb
   \endentry
 
   \entry{iso7816-4}{online}{}
@@ -991,6 +1101,13 @@
     \field{journaltitle}{IEEE Pervasive Computing}
     \field{year}{2006}
     \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{lte}{online}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \field{title}{Wie schnell ist eigentlich LTE | 4G?}
   \endentry
 \enddatalist
 \endinput
