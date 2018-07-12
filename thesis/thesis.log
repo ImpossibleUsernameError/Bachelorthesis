@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2018.3.24)  9 JUL 2018 21:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2018.3.24)  13 JUL 2018 00:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2931,13 +2931,13 @@ LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 10.44997pt on input line 100.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 10.40245pt on input line 109.
-<figures/titlepage/inso-color.pdf, id=147, 189.70876pt x 189.70876pt>
+<figures/titlepage/inso-color.pdf, id=159, 189.70876pt x 189.70876pt>
 File: figures/titlepage/inso-color.pdf Graphic file (type pdf)
 <use figures/titlepage/inso-color.pdf>
 Package pdftex.def Info: figures/titlepage/inso-color.pdf  used on input line 1
 27.
 (pdftex.def)             Requested size: 56.90437pt x 56.9055pt.
-<figures/titlepage/inf-tu-logo-kombi.pdf, id=148, 95.35625pt x 46.1725pt>
+<figures/titlepage/inf-tu-logo-kombi.pdf, id=160, 95.35625pt x 46.1725pt>
 File: figures/titlepage/inf-tu-logo-kombi.pdf Graphic file (type pdf)
 <use figures/titlepage/inf-tu-logo-kombi.pdf>
 Package pdftex.def Info: figures/titlepage/inf-tu-logo-kombi.pdf  used on input
@@ -3685,7 +3685,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 247.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 247.
-<figures/figure1.pdf, id=435, 305.17311pt x 301.30667pt>
+<figures/figure1.pdf, id=453, 305.17311pt x 301.30667pt>
 File: figures/figure1.pdf Graphic file (type pdf)
 <use figures/figure1.pdf>
 Package pdftex.def Info: figures/figure1.pdf  used on input line 258.
@@ -3834,6 +3834,47 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 86.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 86.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 94.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 94.
+
+Overfull \hbox (4.57828pt too wide) in paragraph at lines 107--108
+[]\T1/ptm/m/n/10.95 Diese Mes-sen-ger In-stanz be-fin-det sich in der Hos-tE-mu
+-la-tion-Ma-na-ger Klas-se im Systemapplikation-
+ []
+
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 110.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 110.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 110.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 110.
+\openout7 = `thesis.mw'.
+
+[19] (./thesis.mw)
+\openout7 = `thesis.mw'.
+
+\openout7 = `thesis.mw'.
+
+\openout7 = `thesis.mw'.
+
+\openout7 = `thesis.mw'.
+
+\openout7 = `thesis.mw'.
+
+
+Overfull \hbox (56.54785pt too wide) in paragraph at lines 111--112
+\T1/ptm/m/n/10.95 Wei-ter-lei-tung von Command-Apdus wer-den von der sich im se
+l-ben Pa-ket be-find-li-chen CardEmulationManager-
+ []
+
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 118.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 118.
 ) (./chapters/bibliographic.tex
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 1.
@@ -3845,8 +3886,7 @@ Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 1.
 \openout7 = `thesis.mw'.
 
- [19]
-(./thesis.mw)
+ [20] (./thesis.mw)
 \openout7 = `thesis.mw'.
 
 \openout7 = `thesis.mw'.
@@ -3872,27 +3912,27 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 32.
 
-LaTeX Warning: Citation 'fankhauser:2009:softwaretechnik-security' on page 20 u
+LaTeX Warning: Citation 'fankhauser:2009:softwaretechnik-security' on page 21 u
 ndefined on input line 37.
 
 
-LaTeX Warning: Citation 'fankhauser:2009:softwaretechnik-security' on page 20 u
+LaTeX Warning: Citation 'fankhauser:2009:softwaretechnik-security' on page 21 u
 ndefined on input line 37.
 
 
-LaTeX Warning: Citation 'schanes:2011:voip-fuzzer' on page 20 undefined on inpu
+LaTeX Warning: Citation 'schanes:2011:voip-fuzzer' on page 21 undefined on inpu
 t line 38.
 
 
-LaTeX Warning: Citation 'schanes:2011:voip-fuzzer' on page 20 undefined on inpu
+LaTeX Warning: Citation 'schanes:2011:voip-fuzzer' on page 21 undefined on inpu
 t line 38.
 
 
-LaTeX Warning: Citation 'oasis:2010:homepage' on page 20 undefined on input lin
+LaTeX Warning: Citation 'oasis:2010:homepage' on page 21 undefined on input lin
 e 39.
 
 
-LaTeX Warning: Citation 'oasis:2010:homepage' on page 20 undefined on input lin
+LaTeX Warning: Citation 'oasis:2010:homepage' on page 21 undefined on input lin
 e 39.
 
 
@@ -3911,7 +3951,7 @@ Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 1.
 \openout7 = `thesis.mw'.
 
- [20
+ [21
 
 ] (./thesis.mw)
 \openout7 = `thesis.mw'.
@@ -3955,7 +3995,7 @@ Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 2.
 \openout7 = `thesis.mw'.
 
- [21
+ [22
 
 ]
 (./thesis.mw)
@@ -3983,7 +4023,7 @@ Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 2.
 \openout7 = `thesis.mw'.
 
- [22] (./thesis.mw)
+ [23] (./thesis.mw)
 \openout7 = `thesis.mw'.
 
 Package babel Info: Redefining ngerman shorthand "|
@@ -4002,7 +4042,7 @@ Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 2.
 \openout7 = `thesis.mw'.
 
- [23
+ [24
 
 ] (./thesis.mw)
 \openout7 = `thesis.mw'.
@@ -4026,7 +4066,7 @@ Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 66.
 \openout7 = `thesis.mw'.
 
- [24
+ [25
 
 ] (./thesis.mw)
 \openout7 = `thesis.mw'.
@@ -4059,7 +4099,7 @@ Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 66.
 \openout7 = `thesis.mw'.
 
-[25
+[26
 
 
 ] (./thesis.mw)
@@ -4107,7 +4147,7 @@ Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 66.
 \openout7 = `thesis.mw'.
 
-[26] (./thesis.mw)
+[27] (./thesis.mw)
 \openout7 = `thesis.mw'.
 
 \openout7 = `thesis.mw'.
@@ -4138,7 +4178,7 @@ Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 66.
 \openout7 = `thesis.mw'.
 
-[27] (./thesis.mw)
+[28] (./thesis.mw)
 \openout7 = `thesis.mw'.
 
  (./chapters/appendix.tex
@@ -4165,7 +4205,7 @@ Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 73.
 \openout7 = `thesis.mw'.
 
-[28
+[29
 
 
 
@@ -4949,20 +4989,38 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 73.
 
 \openout7 = `thesis.mw'.
 
+\openout7 = `thesis.mw'.
+
+\openout7 = `thesis.mw'.
+
+\openout7 = `thesis.mw'.
+
+\openout7 = `thesis.mw'.
+
+\openout7 = `thesis.mw'.
+
+\openout7 = `thesis.mw'.
+
+\openout7 = `thesis.mw'.
+
+\openout7 = `thesis.mw'.
+
+\openout7 = `thesis.mw'.
+
+\openout7 = `thesis.mw'.
+
+\openout7 = `thesis.mw'.
+
+\openout7 = `thesis.mw'.
+
 )
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 73.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 73.
 \openout7 = `thesis.out'.
 
+Package rerunfilecheck Info: File `thesis.out' has not changed.
+(rerunfilecheck)             Checksum: F4809590E161EEEB9C3FFD30CF2BBD7E;2616.
 
-
-Package rerunfilecheck Warning: File `thesis.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `thesis.out':
-(rerunfilecheck)             Before: CE4B3F5A8D8939AB22982425D033AA6E;2333
-(rerunfilecheck)             After:  A74D623BD60008DA932A4323EF9DA5EB;2429.
 
 LaTeX Warning: There were undefined references.
 
@@ -4990,10 +5048,10 @@ Package logreq Info: Writing requests to 'thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 49056 strings out of 492982
- 908841 string characters out of 6136225
- 1403549 words of memory out of 5000000
- 51572 multiletter control sequences out of 15000+600000
+ 49069 strings out of 492982
+ 909051 string characters out of 6136225
+ 1403548 words of memory out of 5000000
+ 51579 multiletter control sequences out of 15000+600000
  618176 words of font info for 119 fonts, out of 8000000 for 9000
  1145 hyphenation exceptions out of 8191
  75i,18n,94p,10362b,2841s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -5013,10 +5071,10 @@ live/2017/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb><c:/texlive/2017/texmf
 -dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2017/texmf-dist/fonts/type1/
 urw/times/utmr8a.pfb><c:/texlive/2017/texmf-dist/fonts/type1/urw/times/utmri8a.
 pfb>
-Output written on thesis.pdf (38 pages, 240155 bytes).
+Output written on thesis.pdf (39 pages, 245198 bytes).
 PDF statistics:
- 744 PDF objects out of 1000 (max. 8388607)
- 672 compressed objects within 7 object streams
- 169 named destinations out of 1000 (max. 500000)
- 308 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 764 PDF objects out of 1000 (max. 8388607)
+ 691 compressed objects within 7 object streams
+ 173 named destinations out of 1000 (max. 500000)
+ 332 words of extra memory for PDF output out of 10000 (max. 10000000)
 

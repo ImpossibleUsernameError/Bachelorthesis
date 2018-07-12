@@ -85,8 +85,37 @@ Für eine Kommunikation zwischen den Geräten über ein WLAN-Netzwerk konnten di
 
 \subsection{Interception der Android NFC Schnittstelle}
 
+Um zu verstehen, wie die Kommunikation mit der Android NFC Schnittstelle auf das Angreifer-Gerät umgelenkt wird, muss zunächst ein grundlegendes Verständnis der Host Card Emulation Funktionalität auf Android Smartphones geschaffen werden. Die Architektur ist in nachfolgender Abbildung veranschaulicht und wird im darunterstehenden Unterkapitel genauer beschrieben. 
 
+\begin{figure}
+	\caption{Android NFC Host Card Emulation Architektur}
+\end{figure}
 
+\subsection{Die Android NFC Host Card Emulation Architektur}
+
+Im Android Betriebssystem finden sich 2 Pakete, die für die Funktionalität von Host Card Emulation von besonderer Bedeutung sind: 
+
+\begin{itemize}
+	\item \textbf{frameworks/base/core/java/android/nfc}: Beinhaltet die Komponenten, die vom Android Framework für die mobile App-Entwicklung bereitgestellt werden. Die Klassen in diesem Paket können von jedem Entwickler beim Entwickeln einer App zur Nutzung der NFC Funktionalität verwendet werden. Dieses Paket wird in der nachfolgenden Beschreibung als "Framework" bezeichnet.
+	\item \textbf{packages/apps/Nfc}: Dieses Paket enthält die NFC Funktionalität auf Systemservice Ebene. Grundsätzlich stellen die Java Klassen eine Android Systemapplikation zur Verfügung, die die NFC Funktionalität bereitstellt. Die Klassen in diesem Paket werden von den Android Framework Komponenten über den Binder IPC Mechanismus angesprochen. Dieses Paket wird in der nachfolgenden Beschreibung als "Systemapplikation" bezeichnet.
+\end{itemize}
+
+Verfolgt man einen Top-Down Ansatz bei der Analyse der Host Card Emulation Funktionalität, befindet sich der Einstiegspunkt in der HostApduService Klasse, die sich im Frameworks-Paket befindet und somit in jeder beliebigen Android Applikation verwendet werden kann. Um HCE Funktionalität zur Verfügung stellen zu können, muss dieses Android Service von der App erweitert und im AndroidManifest.xml gemeinsam mit den unterstützten Application IDs registriert werden. Danach können Apdus über NFC von der Applikation in der processCommandApdu Methode empfangen werden. 
+
+Die Frage, die sich zunächst stellt ist, wie die vom NFC Controller empfangenen Apdus an die HostApduService Klasse weitergeleitet werden. Bei der Untersuchung der HostApduService Klasse stellt sich heraus, dass die processCommandApdu Methode innerhalb eines MessageHandlers aufgerufen wird. Dies ist eine Klasse des Android Binder IPC Mechanismus. Daraus lässt sich schließen, dass ebenfalls eine Instanz eines Messengers, der für die Kommunikation mit dem HostApduService verantwortlich ist, im Systemapplikation-Paket zu finden ist. 
+
+Diese Messenger Instanz befindet sich in der HostEmulationManager Klasse im Systemapplikation-Paket. Diese Klasse ist verantwortlich für die korrekte Weiterleitung sowohl von Command- als auch von Response-Apdus. Um diese Funktionalität bereitzustellen, besitzt die Klasse das bereits angesprochene Messenger-Objekt, um über dieses Command-Apdus an eine HostApduService-Instanz weiterzuleiten. Response-Apdus werden analog auf umgekehrtem Weg empfangen. Hierzu besitzt der HostEmulationManager ein MessageHandler-Objekt, das über die dazugehörige Messenger-Instanz im HostApduService angesprochen wird. Darüber hinaus verfügt der HostEmulationManager eine Zustandsverwaltung für die HCE Funktionalität. 
+
+Nachdem auf einem Android-Gerät mehrere Applikationen vorhanden sein können, die eine HostApduService Komponente enthalten, muss das System eine Möglichkeit besitzen, die korrekte Instanz für ein ankommendes Command-Apdu auszuwählen. Um dies zu realisieren, besitzt der HostEmulationManager ein RegisteredAidCache-Objekt. Im Prinzip ist diese Komponente ein Speicherort, der registrierten AIDs die zugehörigen HostApduService-Instanzen zuordnet und diese verwaltet. Wird ein SELECT APDU registriert, wird daraufhin die passende HostApduService Instanz aus dem RegisteredAidCache geladen und alle nachfolgenden Apdus werden an dieses Service weitergeleitet.
+
+Die Methoden des HostEmulationManagers zum Aktivieren der HCE Funktionalität sowie zur Weiterleitung von Command-Apdus werden von der sich im selben Paket befindlichen CardEmulationManager-Klasse aufgerufen. An diese Komponente werden ebenfalls die Response-Apdus zurückgeleitet. Der CardEmulationManager stellt eine zentrale Schnittstelle für unterschiedliche Services, die Card Emulation implementieren, zur Verfügung. In dieser Klasse findet die tatsächliche Verwaltung der HCE Services sowie der AIDs statt, die im HostEmulationManager ausgelesen werden. 
+
+Der nächste Schritt in der Implementierung führt von der CardEmulationManager-Komponente zur NfcService Klasse. Aus dieser äußerst umfangreichen Klasse ist zu erkennen, dass diese die zentrale Instanz der NFC Applikation darstellt. Sie ist verantwortlich für die Ausführung jeglicher NFC Funktionalität auf dem Gerät und zur Weiterleitung von NFC Signalen an die zur Verarbeitung verantwortlichen Komponenten. Das NfcService implementiert das DeviceHostListener Interface, das über das Java Native Interface (JNI) von der nativen Implementierung der NFC Schnittstelle angesprochen wird. 
+
+Über die native Implementierung werden die NFC Signale schlussendlich über die Hardware Abstraction Layer (HAL) Schicht und den Linux Kernel an die NFC Hardware weitergeleitet. Die Implementierung der nativen sowie der darunterliegenden Schichten liegt allerdings außerhalb des Rahmens dieser Diskussion und wird nicht weiter beleuchtet.
+Die Implementierung der Umleitung der NFC Signale erfolgt ohnehin in den Java-Komponenten der NFC Schnittstelle und wird im nächsten Kapitel erläutert. 
+
+\subsection{Implementierung der Interception}
 
 In diesem Kapitel wird die eigentliche Problemlösung in einem oder mehreren Unterkapiteln ausgeführt. Die Strukturierung dieser Kapitel ist naturgemäß sehr stark von der konkre Aufgabenstellung abhängig. Der Name dieses Kapitels ist anzupassen, z.B. Umfeldbeschreibung -- Fallbeispiel \dots, konkreter schreiben je nach Art Diplomarbeit/Fragestellung.
 \makeatletter\ifthesis@masterthesis
