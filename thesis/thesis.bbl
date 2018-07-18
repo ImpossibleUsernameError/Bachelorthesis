@@ -41,6 +41,22 @@
     \field{urlyear}{2018}
   \endentry
 
+  \entry{android-ipc-mechanism}{online}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \field{title}{Android Interprocess Communication (IPC) with Messenger
+  (Remote Bound Services)}
+    \verb{url}
+    \verb http://codetheory.in/android-interprocess-communication-ipc-messenger
+    \verb -remote-bound-services/
+    \endverb
+    \field{year}{2015}
+    \field{urlday}{17}
+    \field{urlmonth}{07}
+    \field{urlyear}{2018}
+  \endentry
+
   \entry{nfcRelayWithOffTheShelfHardAndSoftware}{article}{}
     \name{author}{4}{}{%
       {{hash=BT}{%
@@ -192,6 +208,30 @@
     \field{urlyear}{2018}
   \endentry
 
+  \entry{android-architecture}{online}{}
+    \name{author}{1}{}{%
+      {{hash=DA}{%
+         family={Developers},
+         familyi={D\bibinitperiod},
+         given={Android},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{DA1}
+    \strng{fullhash}{DA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{title}{Architecture}
+    \verb{url}
+    \verb https://source.android.com/devices/architecture/
+    \endverb
+    \field{urlday}{17}
+    \field{urlmonth}{07}
+    \field{urlyear}{2018}
+  \endentry
+
   \entry{android-bluetooth}{online}{}
     \name{author}{1}{}{%
       {{hash=DA}{%
@@ -212,6 +252,30 @@
     \verb https://developer.android.com/guide/topics/connectivity/bluetooth
     \endverb
     \field{urlday}{07}
+    \field{urlmonth}{07}
+    \field{urlyear}{2018}
+  \endentry
+
+  \entry{android-hal}{online}{}
+    \name{author}{1}{}{%
+      {{hash=DA}{%
+         family={Developers},
+         familyi={D\bibinitperiod},
+         given={Android},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{DA1}
+    \strng{fullhash}{DA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{title}{Hardware Abstraction Layer (HAL)}
+    \verb{url}
+    \verb https://source.android.com/devices/architecture/hal
+    \endverb
+    \field{urlday}{17}
     \field{urlmonth}{07}
     \field{urlyear}{2018}
   \endentry
@@ -237,6 +301,30 @@
     \endverb
     \field{urlday}{25}
     \field{urlmonth}{01}
+    \field{urlyear}{2018}
+  \endentry
+
+  \entry{android-platform-architecture}{online}{}
+    \name{author}{1}{}{%
+      {{hash=DA}{%
+         family={Developers},
+         familyi={D\bibinitperiod},
+         given={Android},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{DA1}
+    \strng{fullhash}{DA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{title}{Platform Architecture}
+    \verb{url}
+    \verb https://developer.android.com/guide/platform/
+    \endverb
+    \field{urlday}{17}
+    \field{urlmonth}{07}
     \field{urlyear}{2018}
   \endentry
 
@@ -369,6 +457,33 @@
     \field{year}{2006}
     \field{urlday}{29}
     \field{urlmonth}{04}
+    \field{urlyear}{2018}
+  \endentry
+
+  \entry{android-marketshare}{online}{}
+    \name{author}{1}{}{%
+      {{hash=GS}{%
+         family={GmbH},
+         familyi={G\bibinitperiod},
+         given={Statista},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{GS1}
+    \strng{fullhash}{GS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{title}{Global mobile OS market share in sales to end users from 1st
+  quarter 2009 to 1st quarter 2018}
+    \verb{url}
+    \verb https://www.statista.com/statistics/266136/global-market-share-held-b
+    \verb y-smartphone-operating-systems/
+    \endverb
+    \field{year}{2018}
+    \field{urlday}{16}
+    \field{urlmonth}{07}
     \field{urlyear}{2018}
   \endentry
 
@@ -987,6 +1102,20 @@
     \field{year}{2013}
     \field{urlday}{15}
     \field{urlmonth}{04}
+    \field{urlyear}{2018}
+  \endentry
+
+  \entry{structure-of-android-os}{online}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{title}{Structure of an Android Operating System}
+    \verb{url}
+    \verb https://www.educba.com/structure-of-an-android-operating-system/
+    \endverb
+    \field{year}{2016}
+    \field{urlday}{17}
+    \field{urlmonth}{07}
     \field{urlyear}{2018}
   \endentry
 

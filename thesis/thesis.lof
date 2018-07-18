@@ -12,21 +12,29 @@
 \defcounter {refsection}{0}\relax
 \addvspace {10pt}
 \defcounter {refsection}{0}\relax
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Struktur eines Command-Apdus\relax }}{7}{figure.caption.15}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Architektur des Android Software Stacks\relax }}{4}{figure.caption.13}
 \defcounter {refsection}{0}\relax
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Struktur eines Response-Apdus\relax }}{7}{figure.caption.16}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Binder IPC Datenfluss\relax }}{5}{figure.caption.16}
 \defcounter {refsection}{0}\relax
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Prinzip der Relay Attacke\relax }}{11}{figure.caption.17}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Struktur eines Command-Apdus\relax }}{9}{figure.caption.22}
 \defcounter {refsection}{0}\relax
-\contentsline {figure}{\numberline {2.4}{\ignorespaces xxx (Quelle zitieren, wenn nicht selbst erstellt)\relax }}{14}{figure.caption.18}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Struktur eines Response-Apdus\relax }}{9}{figure.caption.23}
+\defcounter {refsection}{0}\relax
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Prinzip der Relay Attacke\relax }}{13}{figure.caption.24}
+\defcounter {refsection}{0}\relax
+\contentsline {figure}{\numberline {2.6}{\ignorespaces xxx (Quelle zitieren, wenn nicht selbst erstellt)\relax }}{16}{figure.caption.25}
 \defcounter {refsection}{0}\relax
 \addvspace {10pt}
 \defcounter {refsection}{0}\relax
-\contentsline {figure}{\numberline {3.1}{\ignorespaces \IeC {\"U}bersicht der Relay Attacke\relax }}{16}{figure.caption.20}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces \IeC {\"U}bersicht der Relay Attacke\relax }}{18}{figure.caption.27}
 \defcounter {refsection}{0}\relax
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Festlegen der AIDs in der aids.xml Datei\relax }}{17}{figure.caption.21}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Festlegen der AIDs in der aids.xml Datei\relax }}{19}{figure.caption.28}
 \defcounter {refsection}{0}\relax
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Android NFC Host Card Emulation Architektur\relax }}{19}{figure.caption.22}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Android NFC Host Card Emulation Architektur\relax }}{21}{figure.caption.29}
+\defcounter {refsection}{0}\relax
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Weg eines NFC Command Apdus\relax }}{23}{figure.caption.30}
+\defcounter {refsection}{0}\relax
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Vollst\IeC {\"a}ndiger Kommunikationsweg bei der Durchf\IeC {\"u}hrung der Relay Attacke\relax }}{23}{figure.caption.31}
 \defcounter {refsection}{0}\relax
 \addvspace {10pt}
 \defcounter {refsection}{0}\relax

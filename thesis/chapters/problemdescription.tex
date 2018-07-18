@@ -37,7 +37,7 @@ Das modifizierte Betriebssystem leitet nun diese Antworten an die Kommunikations
 
 In den nachfolgenden Kapiteln wird ausgeführt, wie die einzelnen Komponenten im Detail umgesetzt wurden, um die beschriebene Funktionalität bereitzustellen. 
 
-\subsection{Die Hostcard Emulation Anwendung}
+\section{Die Hostcard Emulation Anwendung}
 
 Das Android Framework stellt zur Implementierung einer Hostcard Emulation Anwendung die Klasse HostApduService zur Verfügung. Diese Android-Service Klasse sorgt für das Annehmen von Command Apdus, nachdem diese von der NFC Schnittstelle empfangen wurden. Um diese empfangenen Apdus verarbeiten zu können, muss die Klasse erweitert und die processCommandApdu Methode überschrieben werden. 
 Welche Applikation zur Verarbeitung eines eintreffenden Command Apdus gestartet werden soll, wird vom Betriebssystem festgestellt. Dieses besitzt einen Routing Mechanismus, der auf den sogenannten Application IDs (AIDs) aufgebaut ist \cite{androidHce}. Das sind Identifier, die Zahlungsanwendungen eindeutig identifizieren und sie müssen bei der Installation einer Mobile Payment App von dieser beim Betriebssystem durch eine XML-Datei in der Anwendung registriert werden \cite{androidHce}.
@@ -55,7 +55,7 @@ Nach Auswahl der Applikation zur Verarbeitung der Zahlung werden, solange die NF
 
 Um eine echte Zahlungsanwendung zu simulieren wurden in der implementierten App die ersten Response Apdus einer echten MAESTRO Debitkarte gespeichert. Als Reaktion auf ein ankommendes Command Apdu wird deshalb das passende Response Apdu an das Betriebssystem zurückgeliefert. 
 
-\subsection{Die Kommunikation zwischen Angreifer und Opfer}
+\section{Die Kommunikation zwischen Angreifer und Opfer}
 
 Um die vom Angreifer-Gerät erhaltenen Apdus an das Opfer weiterleiten zu können, muss zwischen den beiden Geräten eine sekundäre Verbindung hergestellt werden. Moderne Smartphones besitzen für den Aufbau einer derartigen Kommunikation mehrere unterschiedliche Möglichkeiten:
 
@@ -83,7 +83,7 @@ Nachdem auch nach mehreren Versuchen, keine durchgehende Wi-Fi Direct Verbindung
 
 Für eine Kommunikation zwischen den Geräten über ein WLAN-Netzwerk konnten die Komponenten, wie sie für eine Implementierung über das mobile Internet anfangs entwickelt wurden, ohne Änderungen übernommen werden, nachdem nur die IP-Adresse des Opfers geändert werden musste. 
 
-\subsection{Interception der Android NFC Schnittstelle}
+\section{Interception der Android NFC Schnittstelle}
 
 Um zu verstehen, wie die Kommunikation mit der Android NFC Schnittstelle auf das Angreifer-Gerät umgelenkt wird, muss zunächst ein grundlegendes Verständnis der Host Card Emulation Funktionalität auf Android Smartphones geschaffen werden. Die Architektur ist in nachfolgender Abbildung veranschaulicht und wird im darunterstehenden Unterkapitel genauer beschrieben. 
 
@@ -110,12 +110,35 @@ Nachdem auf einem Android-Gerät mehrere Applikationen vorhanden sein können, d
 
 Die Methoden des HostEmulationManagers zum Aktivieren der HCE Funktionalität sowie zur Weiterleitung von Command-Apdus werden von der sich im selben Paket befindlichen CardEmulationManager-Klasse aufgerufen. An diese Komponente werden ebenfalls die Response-Apdus zurückgeleitet. Der CardEmulationManager stellt eine zentrale Schnittstelle für unterschiedliche Services, die Card Emulation implementieren, zur Verfügung. In dieser Klasse findet die tatsächliche Verwaltung der HCE Services sowie der AIDs statt, die im HostEmulationManager ausgelesen werden. 
 
-Der nächste Schritt in der Implementierung führt von der CardEmulationManager-Komponente zur NfcService Klasse. Aus dieser äußerst umfangreichen Klasse ist zu erkennen, dass diese die zentrale Instanz der NFC Applikation darstellt. Sie ist verantwortlich für die Ausführung jeglicher NFC Funktionalität auf dem Gerät und zur Weiterleitung von NFC Signalen an die zur Verarbeitung verantwortlichen Komponenten. Das NfcService implementiert das DeviceHostListener Interface, das über das Java Native Interface (JNI) von der nativen Implementierung der NFC Schnittstelle angesprochen wird. 
+Der nächste Schritt in der Implementierung führt von der CardEmulationManager-Komponente zur NfcService Klasse. Aus dieser äußerst umfangreichen Klasse ist zu erkennen, dass diese die zentrale Instanz der NFC Applikation darstellt. Sie ist verantwortlich für die Ausführung jeglicher NFC Funktionalität auf dem Gerät und zur Weiterleitung von NFC Signalen an die zur Verarbeitung verantwortlichen Komponenten. Das NfcService implementiert das DeviceHostListener Interface und besitzt eine Instanz der NativeNfcManager-Klasse die über das Java Native Interface (JNI) von der nativen Implementierung der NFC Schnittstelle angesprochen wird. Bei dieser Instanz registriert sich das NfcService selbst als Callback und kann auf diese Art und Weise Daten von der nativen NFC-Implementierung erhalten. 
 
 Über die native Implementierung werden die NFC Signale schlussendlich über die Hardware Abstraction Layer (HAL) Schicht und den Linux Kernel an die NFC Hardware weitergeleitet. Die Implementierung der nativen sowie der darunterliegenden Schichten liegt allerdings außerhalb des Rahmens dieser Diskussion und wird nicht weiter beleuchtet.
 Die Implementierung der Umleitung der NFC Signale erfolgt ohnehin in den Java-Komponenten der NFC Schnittstelle und wird im nächsten Kapitel erläutert. 
 
 \subsection{Implementierung der Interception}
+
+Nachdem die Signale vom Angreifer-Gerät über die Kommunikationsanwendung zum Opfer-Gerät weitergeleitet wurden, musste zunächst die HCE Applikation aktiviert werden. Diese wird im Normalfall nur von der Systemservice NFC Anwendung gestartet, sobald ein Apdu von der NFC Schnittstellte empfangen wurde. Das Auswählen der passenden HCE App sowie das Starten dieser findet in der HostEmulationManager-Klasse in der Methode onHostEmulationData(byte[] data) statt. Es musste demnach eine Möglichkeit definiert werden, die Methoden der HostEmulationManager-Klasse aus der Kommunikationsanwendung aufzurufen. Um dies zu bewerkstelligen, wurde ein Standard Android BroadcastReceiver entwickelt, der mit der selbstdefinierten Action \glqq HCE\_COMMAND\grqq in der HostEmulationManager-Klasse registriert wird. Hierbei wird an den BroadcastReceiver das HostEmulationManager-Objekt ebenfalls übergeben, um dessen Methoden ausführen zu können. Sobald ein Broadcast mit dieser Action gesendet wird, wird in der onReceive Methode des selbstgeschriebenen BroadcastReceivers die onHostEmulationData Methode aufgerufen. Die Apdu-Daten werden mit dem Broadcast übergeben. 
+Gesendet wird ein entsprechender Broadcast in der Kommunikationsanwendung nach dem Empfangen von Apdu-Daten vom Angreifer. Diese Schritte ermöglichen das Weiterleiten der Command-Apdus zu einer beliebigen HCE Anwendung. 
+
+Nach Implementierung des BroadcastReceivers sowie dessen Anbindung an die Android Systemkomponenten verläuft der Weg eines vom POS Terminal stammenden Command-Apdus wie in Abbildung \textbf{XXX} gezeigt. 
+
+\begin{figure}
+	\caption{Weg eines NFC Command Apdus}
+\end{figure}
+
+Ausgehend vom POS Terminal wird das Command Apdu vom Angreifer Gerät durch die bereits beschriebenen unveränderten Systemkomponenten an das HostApduService in der Kommunikationanwendung gesendet. Daraufhin wird von diesem Service eine TCP/IP Verbindung über das lokale WLAN Netzwerk mit dem Opfer-Gerät aufgebaut. Konnte die Verbindung erfolgreich erstellt werden, wird das Command-Apdu über diese zur Kommunikationsanwendung im Opfer-Gerät gesendet. Beim Empfangen des Apdus wird ein Broadcast mit der Action \glqq HCE\_COMMAND\grqq und den Apdu-Daten als Extra an das Android Betriebssystem gesendet. Dieses leitet den Broadcast an die Instanz des selbstdefinierten BroadcastReceivers in der modifizierten HostEmulationManager Klasse weiter, wodurch die Methode onHostEmulationData aufgerufen wird. Ab diesem Zeitpunkt nimmt das Command-Apdu denselben Weg zur HCE Anwendung, wie wenn es direkt von der NFC Schnittstelle und einem POS Terminal gestartet wird. Wird das APDU als SELECT APDU erkannt, wird aus dem RegisteredAidCache die entsprechende HostApduService Instanz zur Verarbeitung des Kommandos ausgewählt und die Nachricht an dieses Service weitergeleitet. Ansonsten wird das Command-Apdu an die zuvor ausgewählte HostApduService Instanz gesendet. 
+
+Nachdem das Command-Apdu von der HCE Applikation verarbeitet wurde, liefert diese ein entsprechendes Response-Apdu als Antwort. Dieses wird im Normalfall vom HostApduService wieder zurück an die HostEmulationManager-Komponente in der Android NFC Anwendung gesendet. Von dieser Stelle wird es danach über den CardEmulationManager und das NfcService an die Hardware weitergegeben, wo das Response-Apdu als NFC Antwort abgesendet wird. Nachdem sich das Opfer-Gerät physisch allerdings nicht in der Nähe eines POS Terminals befindet, würde das Response-Apdu einfach verloren gehen. Es wird daher ein Weg benötigt, das Response-Apdu wieder über die Kommunikationsanwendung zum Angreifer-Gerät und von diesem ans POS Terminal zurückzusenden. 
+
+Implementiert wurde dies analog in umgekehrter Art und Weise wie bei der Weiterleitung von Command-Apdus. Die HostEmulationManager-Klasse wurde so modifiziert, dass beim Empfangen eines Response-Apdus über den MessageHandler des entsprechenden HostApduServices, dieses Response-Apdu wiederum über einen Broadcast an das Android Betriebssystem gesendet wird. In der Kommunikationsanwendung wird bereits beim Initiieren der Verbindung mit dem Angreifer ein entsprechender BroadcastReceiver zur Bearbeitung von Response-Apdus registriert. Als Reaktion auf das Empfangen eines derartigen Broadcasts, der die Response-Apdu Daten als Extra enthält, werden diese Daten über die WLAN Verbindung an das Angreifer-Gerät zurückgesendet. Dieses leitet die Daten schlussendlich an das POS Terminal weiter. 
+
+Auf diese Art und Weise wurde durch nur zwei Modifikationen an der HostEmulationManager Klasse in der Android NFC Applikation erfolgreich eine Proof-of-Concept Relay Attacke durchgeführt.
+
+Der Kommunikationsweg der vollständigen Relay-Attacke ist zur Veranschaulichung in der nachfolgenden Abbildung dargestellt. 
+
+\begin{figure}[h]
+	\caption{Vollständiger Kommunikationsweg bei der Durchführung der Relay Attacke}
+\end{figure}
 
 In diesem Kapitel wird die eigentliche Problemlösung in einem oder mehreren Unterkapiteln ausgeführt. Die Strukturierung dieser Kapitel ist naturgemäß sehr stark von der konkre Aufgabenstellung abhängig. Der Name dieses Kapitels ist anzupassen, z.B. Umfeldbeschreibung -- Fallbeispiel \dots, konkreter schreiben je nach Art Diplomarbeit/Fragestellung.
 \makeatletter\ifthesis@masterthesis

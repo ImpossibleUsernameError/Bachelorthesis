@@ -5,6 +5,53 @@
 
 Dieses Kapitel beschreibt Grundlagen und Konzepte, die eine wichtige Rolle als Fundament für das Verständnis der Arbeit einnehmen. In erster Linie wird die Kommunikationstechnologie Near Field Communication (NFC) und ihre Funktionsweise vorgestellt. Es soll behandelt werden, wie NFC technisch umgesetzt ist und mithilfe welcher Komponenten und Methoden die drahtlose Kommunikation erfolgt. Außerdem soll auf die Ausführung der Technologie auf mobilen Android Geräten eingegangen und Sicherheitsrisiken und -konzepte beschrieben werden. Ein äußerst relevanter Punkt im Zusammenhang mit dieser Arbeit ist die Relay Attacke. Das Prinzip hinter diesem Angriff und dessen praktische Ausführung werden ebenfalls behandelt. 
 
+Im Zuge der praktischen Implementierung der Relay Attacke wird mit dem Android Betriebssystem gearbeitet. Dabei werden neben der Entwicklung von Android Applikationen auch Eingriffe in den Android Quellcode selbst notwendig sein. Um die praktische Implementierung der Relay Attacke zu verstehen, ist daher ein grundlegendes Verständnis der Android Architektur sowie der Komponenten zur Entwicklung einer Android Applikation essentiell. Im nachfolgenden Kapitel wird daher vor der Diskussion der mit der NFC Technologie verwandten Themen eine Erläuterung der Grundlagen des Android Betriebssystems gegeben. 
+
+\section{Android Architektur}
+
+Das Android Betriebssystem ist mit einem Marktanteil von rund 85\% \cite{android-marketshare} das beliebteste Betriebssysteme für mobile Plattformen weltweit. Im Jahr 2018 sind unterschiedlichste Mobilgeräte wie Smartphones, Tablets, Smartwatches, Fernseher und Autos mit dem Betriebssystem ausgestattet. Android wird von der Firma Google entwickelt, wobei der Quellcode des Betriebssystems vollständig Open Source vorliegt und von jeder beliebigen Person heruntergeladen und modifiziert werden kann. Darüber hinaus werden von Google umfassende Tools zur Verfügung gestellt, die es erlauben, Anwendungen für die Android Plattform zu entwickeln und diese der Öffentlichkeit zur Verfügung zu stellen. In den nachfolgenden Kapiteln werden die grundlegenden Komponenten derartiger Anwendungen vorgestellt. Darüber hinaus wird ebenfalls der Aufbau des Android Betriebssystems erläutert. 
+
+\subsection{Architektur des Android Betriebssystems}
+
+Das Android Betriebssystem ist ein Software Stack, der auf einem Linux Kernel aufgebaut ist \cite{android-platform-architecture}. Dieser Linux Kernel wurde modifiziert und optimiert, um den Anforderungen einer mobilen Plattform mit beschränkten Ressourcen bestmöglich gerecht zu werden. Abbildung \textbf{XXX} gibt einen Überblick über den Android Software Stack. 
+
+\begin{figure}[h]
+	\caption{Architektur des Android Software Stacks}
+\end{figure}
+
+Von oben nach unten betrachtet, erfüllen die unterschiedlichen Schichten folgende Aufgaben:
+
+\subsubsection{Das Application Framework}
+
+Das Application Framework stellt Komponenten und Services zur Verfügung, die Entwickler in eigenen Applikationen verwenden können. Das Framework besteht aus Klassen, die in der Programmiersprache Java entwickelt wurden und die essentielle Bausteine für alle auf dem Android System vorhandenen Applikationen darstellen \cite{android-platform-architecture}. Neben unzähligen weiteren Funktionen stellen diese Bausteine Wege zur Verfügung um das User Interface zu bauen, Datenbanken zu erstellen, mit der Kamera zu interagieren, Daten über das Internet, Bluetooth, WLAN oder NFC zu übertragen, Spiele zu entwickeln oder beispielsweise Musik abzuspielen. Android System Applikationen wie die Email, Kalender oder Kontakte Anwendung werden ebenfalls mit diesen Komponenten erstellt. Auch die NFC Applikation, die für das Senden und Empfangen von Daten über die NFC Schnittstelle verantwortlich ist, ist eine gewöhnliche Android Applikation, die mithilfe der Framework Komponenten erstellt wurde. 
+
+\subsubsection{Binder IPC}
+
+Der Binder Inter-Process Communication Mechanismus stellt eine Möglichkeit zur Verfügung, zwischen verschiedenen Prozessen zu kommunizieren. Auf diese Art und Weise können Android Framework Komponenten, Methoden aus der weiter unten liegenden Systemservice-Schicht aufrufen, um mit System Services zu kommunizieren \cite{android-architecture}. Dieser Mechanismus kann auch benutzt werden, um zwischen verschiedenen Android Applikationen zu kommunizieren. 
+
+Der Android Binder Mechanismus wird mit sogenannten Bound Services (siehe Kapitel \textbf{XXX}: Architektur von Android Anwendungen) realisiert und beschreibt eine Client-Server-Architektur. Der Service stellt hierbei, den Service dar, während die mit ihm kommunizierende Komponente den Client realisiert. Services besitzen ein Messenger-Objekt, das wiederum mit einem Handler initialisiert wird. Dieser dient als Callback für ankommende Nachrichten. Beim Binden des Services wird ein IBinder-Objekt von diesem an den Client weitergereicht. Dies ist ein Objekt das die Handler-Instanz des Services darstellt. Der Client erstellt nun seinerseits ein Objekt der ServiceConnection-Klasse, die mithilfe des IBinders eine Verbindung zum Service aufbaut. Bei der erfolgreichen Herstellung der Verbindung wird im Client wiederum ein Messenger Objekt erstellt, das ab diesem Moment genutzt werden kann um Message-Objekte an den Service zu senden, der diese in der Handler-Callback Methode empfängt. 
+Um Nachrichten vom Service an den Client senden zu können, enthalten Message-Objekte ein replyTo-Feld das wiederum mit einem Messenger, der mit einem Handler als Callback initialisiert wurde, gesetzt werden muss, um Nachrichten erhalten zu können \cite{android-ipc-mechanism}. 
+
+Folgende Abbildungen sollen den Binder IPC Mechanismus verdeutlichen: 
+
+\begin{figure}[h]
+	\caption{Binder IPC Datenfluss}
+\end{figure}
+
+\subsubsection{System Services}
+
+System Services sind Komponenten, die meist in naher Verbindung mit der darunterliegenden Hardware liegen und die Framework-Komponenten mit wichtigen Systeminformationen versorgen oder Funktionalität zur Verwendung bestimmter Hardware zur Verfügung stellen \cite{android-architecture, structure-of-android-os}. Aufgrund der Nähe zu bestimmter Hardware sind viele System Services in C oder C++ programmiert und verwenden C sowie C++ Bibliotheken \cite{structure-of-android-os}. Die Services in dieser Schicht kommunizieren über den Binder IPC Mechanismus mit der Applikationsebene. 
+
+\subsubsection{Hardware Abstraction Layer}
+
+Diese Ebene wird hauptächlich von Herstellern von Hardware und Mobilgeräten verwendet, um Interfaces für die Hardware des Geräts zur Verfügung zu stellen und diese mit Gerätetreibern zu verknüpfen. Ein HAL definiert ein Standard Interface für diese Operationen, mit dessen Hilfe es möglich ist, Funktionalität für höhere Schichten zur Verfügung zu stellen, ohne das Betriebssystem zu beeinflussen \cite{structure-of-android-os, android-hal}.
+
+\subsubsection{Linux Kernel}
+
+
+
+\subsection{Architektur von Android Anwendungen}
+
 \section{Near Field Communication (NFC)}
 
 Near Field Communication ist eine drahtlose Datenübertragungstechnologie ähnlich wie Bluetooth oder WLAN, mit der auf einfachem und schnellem Weg kleinere Datenmengen 
